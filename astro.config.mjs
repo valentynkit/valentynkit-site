@@ -8,28 +8,20 @@ import { defineConfig, fontProviders } from 'astro/config';
 export default defineConfig({
 	site: 'https://valentynkit.com',
 	integrations: [mdx(), sitemap()],
+	markdown: {
+		// Code blocks stay on the dark canvas in both color modes (brand decision).
+		shikiConfig: { theme: 'github-dark', wrap: false },
+	},
 	fonts: [
 		{
-			provider: fontProviders.local(),
-			name: 'Atkinson',
-			cssVariable: '--font-atkinson',
-			fallbacks: ['sans-serif'],
-			options: {
-				variants: [
-					{
-						src: ['./src/assets/fonts/atkinson-regular.woff'],
-						weight: 400,
-						style: 'normal',
-						display: 'swap',
-					},
-					{
-						src: ['./src/assets/fonts/atkinson-bold.woff'],
-						weight: 700,
-						style: 'normal',
-						display: 'swap',
-					},
-				],
-			},
+			// Serif is the only webfont the site loads; used for body prose only.
+			provider: fontProviders.google(),
+			name: 'EB Garamond',
+			cssVariable: '--font-serif',
+			weights: [400, 500, 600, 700],
+			styles: ['normal', 'italic'],
+			subsets: ['latin'],
+			fallbacks: ['Georgia', 'serif'],
 		},
 	],
 });

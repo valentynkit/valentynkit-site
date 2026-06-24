@@ -1,23 +1,58 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const description = 'Valentyn Kit is a distributed-systems and platform engineer with deep data-intensive and FinTech backend roots, deepening toward low-level systems and blockchain protocol engineering in Rust.';
 ---
 
-<Layout
-	title="About"
-	description="Distributed-systems and platform engineer working from first principles, one level below and one level above."
-	pubDate={new Date('June 24 2026')}
->
-	<p>
-		I am a distributed-systems and platform engineer with deep data-intensive
-		and FinTech backend roots, working from first principles, one level below
-		and one level above. The durable value lives in understanding the whole
-		system, both how complex parts fit and behave together and how they run all
-		the way down.
-	</p>
-
-	<p>
-		I write here about systems from first principles: C and Rust, operating
-		systems, networking, databases, and building things from scratch to
-		understand them. Tools, including AI, are leverage. Fundamentals are the moat.
-	</p>
-</Layout>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>About</h1>
+			<p>
+				I'm <strong>Valentyn Kit</strong>, a distributed-systems and platform
+				engineer with deep data-intensive and FinTech backend roots. I work from
+				first principles, one level below and one level above: up to how complex
+				pieces fit and behave together, and down to how they actually run.
+			</p>
+			<p>
+				Across six years I've built data-intensive backends and reliability-critical
+				systems, from document-processing pipelines for the United Nations, to a
+				high-concurrency Web3 game economy, to an agentic-AI platform. Today I lead
+				the platform for a self-custody FinTech wallet (200K monthly users), where
+				the core is written in Rust: one reliable interface over many blockchains,
+				state-machine money movement, and self-custody signing.
+			</p>
+			<p>
+				Alongside the day job I teach myself systems from the metal up in C and
+				Rust, operating systems, networking, and databases, and I'm deepening
+				toward blockchain protocol engineering on Solana. The durable value lives
+				in understanding the whole system, end to end, no hand-waving. Tools,
+				including AI, are leverage; fundamentals are the moat.
+			</p>
+			<p class="links">
+				<a href="https://github.com/valentynkit">github</a> ·
+				<a href="https://www.linkedin.com/in/valentynkit">linkedin</a> ·
+				<a href="https://x.com/valentynkit">x</a> ·
+				<a href="/resume">résumé</a> ·
+				<a href="mailto:valentynkit.work@pm.me">email</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.links {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		color: var(--fg-muted);
+		margin-top: 2rem;
+	}
+</style>

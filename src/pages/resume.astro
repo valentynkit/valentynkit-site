@@ -1,0 +1,164 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const description = 'Resume of Valentyn Kit, distributed-systems and platform engineer: data-intensive backends, reliability, and a Rust-core FinTech platform.';
+
+const roles = [
+	{
+		org: 'Simple App',
+		title: 'Lead Backend / Platform Engineer',
+		dates: 'Jul 2025 – present',
+		points: [
+			'Lead the platform for a 200K-MAU self-custody FinTech wallet. Designed and own the Rust-core blockchain-abstraction layer every other service builds on: one reliable interface over many chains, with idempotency, back-pressure, and circuit-breakers turning flaky providers into a dependable substrate.',
+			'Modeled money movement (swap, stake, bridge, card-spend) as explicit state machines: durable, exactly-once, crash- and reorg-recoverable.',
+			'Secure non-custodial signing on MPC custody; Go/Rust microservices on Kubernetes, shipped daily.',
+		],
+		stack: 'Rust, Go, Kubernetes, PostgreSQL',
+	},
+	{
+		org: 'Intellias',
+		title: 'Senior Software Engineer',
+		dates: 'May 2024 – Jun 2025',
+		points: [
+			'Built an agentic-AI platform for enterprise: multi-agent coordination, MCP gateways with auth, quotas and telemetry, trustworthy RAG with citation traceability, and CI/CD with safe rollback.',
+			'The engineering discipline around AI: guardrails, verification, observability, deployment safety.',
+		],
+		stack: 'C#/.NET, Azure, Semantic Kernel, MCP',
+	},
+	{
+		org: 'Crypto.com',
+		title: 'Backend Engineer',
+		dates: 'Oct 2023 – Apr 2024',
+		points: [
+			'High-concurrency Web3 game-economy backend: currency, rewards, and leaderboards correct under concurrency at scale.',
+			'Blockchain integration layer with idempotency and back-pressure that absorbed chain variance without player-visible errors. Event-driven over RabbitMQ, Lambda, and EKS.',
+		],
+		stack: '.NET, PostgreSQL, AWS (Lambda, EKS), RabbitMQ',
+	},
+	{
+		org: 'United Nations',
+		title: 'Backend & Reliability Engineer',
+		dates: 'Jun 2020 – Oct 2023',
+		points: [
+			'Re-architected data-intensive document-processing pipelines on Azure Functions and Service Bus with batching, back-pressure, and idempotency: higher throughput at lower cost, SLOs held.',
+			'Zero-downtime delivery across a five-environment path; on-call P1/P2 incident response, alerting, and telemetry.',
+		],
+		stack: 'Azure (Service Bus, Functions), .NET, MSSQL, Elastic',
+	},
+	{
+		org: 'EPAM Systems',
+		title: 'Trainee .NET Developer',
+		dates: 'Dec 2019 – May 2020',
+		points: ['REST microservices, Entity Framework / MSSQL, Agile.'],
+		stack: '',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Resume — ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Valentyn Kit</h1>
+			<p class="tagline">Distributed-systems &amp; platform engineer</p>
+			<p>
+				Data-intensive and FinTech backend roots, working from first principles
+				one level below and one level above. Six years across reliability-critical,
+				distributed systems, now leading a Rust-core platform and deepening toward
+				low-level systems and blockchain protocol engineering.
+			</p>
+
+			<h2>Experience</h2>
+			{
+				roles.map((r) => (
+					<section class="role">
+						<div class="role-head">
+							<span class="org">{r.org}</span>
+							<span class="dates">{r.dates}</span>
+						</div>
+						<p class="role-title">{r.title}</p>
+						<ul>
+							{r.points.map((pt) => (
+								<li>{pt}</li>
+							))}
+						</ul>
+						{r.stack && <p class="stack">{r.stack}</p>}
+					</section>
+				))
+			}
+
+			<h2>Skills</h2>
+			<p>
+				<strong>Languages:</strong> Rust, Go, C, C#.<br />
+				<strong>Systems:</strong> distributed systems, reliability / SRE,
+				event-driven architecture, concurrency, operating systems, networking,
+				databases.<br />
+				<strong>Platforms:</strong> Kubernetes, PostgreSQL, Azure, AWS.
+			</p>
+
+			<h2>Links</h2>
+			<p class="links">
+				<a href="https://github.com/valentynkit">github.com/valentynkit</a><br />
+				<a href="https://www.linkedin.com/in/valentynkit">linkedin.com/in/valentynkit</a><br />
+				<a href="mailto:valentynkit.work@pm.me">valentynkit.work@pm.me</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.tagline {
+		font-family: var(--font-mono);
+		color: var(--accent);
+		margin: -0.5rem 0 1.2rem;
+	}
+	.role {
+		margin-bottom: 1.8rem;
+	}
+	.role-head {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+		font-family: var(--font-mono);
+	}
+	.org {
+		font-weight: 700;
+		color: var(--fg);
+	}
+	.dates {
+		font-size: 0.8rem;
+		color: var(--fg-muted);
+	}
+	.role-title {
+		font-family: var(--font-mono);
+		font-size: 0.9rem;
+		color: var(--fg-secondary);
+		margin: 0.1rem 0 0.5rem;
+	}
+	.role ul {
+		margin: 0;
+		padding-left: 1.1rem;
+	}
+	.role li {
+		margin-bottom: 0.4rem;
+	}
+	.stack {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: var(--fg-muted);
+		margin: 0.5rem 0 0;
+	}
+	.links {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		line-height: 1.9;
+	}
+</style>

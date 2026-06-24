@@ -1,0 +1,112 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const description = 'Side projects: systems and Rust/C craft. Storage engines, TCP servers, a Solana indexer.';
+
+// Curated link-out list; the GitHub READMEs are the source of truth.
+const projects = [
+	{
+		name: 'bytekv',
+		lang: 'C',
+		blurb: 'A small Redis: event loop, append-only persistence, compaction.',
+		href: 'https://github.com/valentynkit/bytekv',
+	},
+	{
+		name: 'building-tcp-servers-in-c',
+		lang: 'C',
+		blurb: 'One echo server, seven I/O models: blocking, nonblocking, select, poll, epoll/kqueue.',
+		href: 'https://github.com/valentynkit/building-tcp-servers-in-c',
+	},
+	{
+		name: 'building-tcp-servers-in-rust',
+		lang: 'Rust',
+		blurb: 'The Rust sibling: blocking through mio and tokio, one cross-backend test.',
+		href: 'https://github.com/valentynkit/building-tcp-servers-in-rust',
+	},
+	{
+		name: 'RowOrient_DB',
+		lang: 'C',
+		blurb: 'An in-memory, row-oriented database, built to understand storage layout.',
+		href: 'https://github.com/valentynkit/RowOrient_DB',
+	},
+	{
+		name: 'Solarix',
+		lang: 'Rust',
+		blurb: 'A Solana indexer. Trajectory work, toward protocol engineering.',
+		href: 'https://github.com/valentynkit/Solarix',
+	},
+	{
+		name: 'x402_CLI',
+		lang: 'Rust',
+		blurb: 'A CLI for the x402 payments protocol on Solana.',
+		href: 'https://github.com/valentynkit/x402_CLI',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Projects — ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Projects</h1>
+			<p>
+				Side projects and tinkering, presented as such. Self-directed systems and
+				Rust/C craft, built from scratch to understand the layer underneath. The
+				source and full write-ups live on
+				<a href="https://github.com/valentynkit">GitHub</a>.
+			</p>
+			<ul>
+				{
+					projects.map((p) => (
+						<li>
+							<a href={p.href} class="name">
+								{p.name}
+							</a>
+							<span class="lang">{p.lang}</span>
+							<p class="blurb">{p.blurb}</p>
+						</li>
+					))
+				}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	ul {
+		list-style: none;
+		margin: 2rem 0 0;
+		padding: 0;
+	}
+	li {
+		margin-bottom: 1.8rem;
+	}
+	.name {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.05rem;
+		color: var(--fg);
+		text-decoration: none;
+	}
+	.name:hover {
+		color: var(--accent);
+	}
+	.lang {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--accent);
+		margin-left: 0.6rem;
+		vertical-align: middle;
+	}
+	.blurb {
+		color: var(--fg-secondary);
+		margin: 0.3rem 0 0;
+	}
+</style>

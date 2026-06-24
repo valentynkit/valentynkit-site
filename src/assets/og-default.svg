@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace">
+  <rect width="1280" height="640" fill="#0d1117"/>
+  <text x="96" y="296" font-size="92" font-weight="700" fill="#e6edf3">valentyn kit</text>
+  <rect x="98" y="328" width="232" height="5" fill="#f0883e"/>
+  <text x="96" y="398" font-size="36" fill="#adbac7">systems from the metal up</text>
+  <text x="96" y="446" font-size="30" fill="#768390">distributed systems in c &amp; rust · <tspan fill="#f0883e">&#8594; solana protocol</tspan></text>
+  <text x="96" y="560" font-size="26" fill="#768390">valentynkit.com</text>
+</svg>
