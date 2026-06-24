@@ -14,11 +14,13 @@ export default defineConfig({
 	},
 	fonts: [
 		{
-			// Serif is the only webfont the site loads; used for body prose only.
+			// Serif is the only webfont the site loads; body prose only.
+			// Source Serif 4: large x-height, sturdy on screen (EB Garamond read
+			// too thin). Reading surface is light, where serif is legible.
 			provider: fontProviders.google(),
-			name: 'EB Garamond',
+			name: 'Source Serif 4',
 			cssVariable: '--font-serif',
-			weights: [400, 500, 600, 700],
+			weights: [400, 600, 700],
 			styles: ['normal', 'italic'],
 			subsets: ['latin'],
 			fallbacks: ['Georgia', 'serif'],

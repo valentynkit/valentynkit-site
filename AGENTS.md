@@ -6,9 +6,11 @@ keep to it:
 
 - One orange accent, light/dark tuned (`#f0883e` / `#bc4c00`). No second accent,
   no gradients, ever.
-- Monospace is the brand layer (headings, nav, code, UI); `EB Garamond` serif is
-  body prose only. Prose measure stays ~68ch.
-- Dark by default via `light-dark()`; near-black, not pure black.
+- Monospace is the brand layer (headings, nav, code, UI); `Source Serif 4` serif
+  is body prose only. Prose measure stays ~68ch.
+- Reading surface is light (serif-on-light is the readable standard). Code blocks
+  stay on the dark GitHub canvas. The site is light only for now; don't reintroduce
+  an auto dark mode that puts serif body on a dark background.
 - Never add the generic tells: Inter as primary, hero illustrations, skill bars,
   GitHub stat/streak widgets, badge soup, "Hi I'm X" copy. Restraint is the brand.
 - Brand tokens live in `src/styles/global.css` (CSS variables). The upstream

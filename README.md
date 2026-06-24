@@ -42,11 +42,13 @@ template aesthetics.
   `#bc4c00` (light). One accent hue only. No second accent, no gradient ever.
 - **Type:** monospace is the brand layer (wordmark, headings, nav, UI, code) via
   the system stack `ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas`
-  (zero font load). `EB Garamond` serif is the body prose, the only webfont
-  loaded. Prose measure is `68ch`.
-- **Dark mode:** `light-dark()` + `<meta name="color-scheme" content="dark light">`,
-  dark by default (the dark canvas). Near-black, never pure `#000`.
-- **Code blocks:** Shiki `github-dark`, kept on the dark canvas in both modes.
+  (zero font load). `Source Serif 4` is the body prose, the only webfont loaded,
+  at 20px / 1.72 line-height. Prose measure is `68ch`.
+- **Reading surface:** light (warm off-white `#fcfcfa`, near-black ink). Serif
+  body is only legible on light, so the site is light only for now (no auto dark
+  mode; a manual toggle can return later).
+- **Code blocks:** Shiki `github-dark`, kept on the dark canvas, so the
+  dark+orange identity still shows on the light page.
 
 Avoid: Inter as the primary face, gradients, hero illustrations, skill bars,
 GitHub stat/streak cards, badge soup, "Hi I'm X" copy. Restraint is the point.

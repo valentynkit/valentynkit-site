@@ -1,20 +1,25 @@
 /*
   Brand tokens mirror persona/brand.md (the source of truth).
-  Mono is the brand layer (wordmark, headings, nav, code); serif is the reading
-  surface (body prose). One accent hue, light/dark tuned. Dark is the default.
+  Reading surface is LIGHT: serif body (Source Serif 4) is only legible on a light
+  background, which is why every serif exemplar (matklad, Brandur, Dan Luu) is
+  light. Monospace is the brand layer (wordmark, headings, nav, code). Code blocks
+  keep the dark GitHub canvas so the dark+orange identity still shows on the page.
 */
 :root {
-	color-scheme: dark light;
+	color-scheme: light;
 
-	--bg: light-dark(#ffffff, #0d1117);
-	--fg: light-dark(#1f2328, #e6edf3);
-	--fg-secondary: light-dark(#57606a, #adbac7);
-	--fg-muted: light-dark(#8b949e, #768390);
-	--border: light-dark(#d0d7de, #21262d);
-	--accent: light-dark(#bc4c00, #f0883e);
+	--bg: #fcfcfa; /* warm off-white reading surface */
+	--bg-offset: #f2f1ea; /* subtle panels, inline code */
+	--fg: #1c1e22; /* near-black ink */
+	--fg-secondary: #4b515a;
+	--fg-muted: #6e7781;
+	--border: #e4e2d9;
+	--accent: #bc4c00; /* orange, readable on light (AA) */
+	--accent-hover: #97400b;
 
-	/* code blocks stay dark in both modes (Shiki github-dark) */
+	/* code blocks stay on the dark canvas (Shiki github-dark) */
 	--code-bg: #0d1117;
+	--code-fg: #e6edf3;
 	--code-border: #21262d;
 
 	--font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
@@ -36,17 +41,19 @@ body {
 	background: var(--bg);
 	color: var(--fg);
 	font-size: 20px;
-	line-height: 1.65;
+	line-height: 1.72;
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 main {
 	max-width: var(--measure);
 	margin: 0 auto;
-	padding: 3rem 1.25rem 5rem;
+	padding: 3.5rem 1.25rem 6rem;
 }
 
 /* Brand layer: everything structural is mono. */
@@ -60,7 +67,7 @@ nav,
 .mono {
 	font-family: var(--font-mono);
 	font-weight: 700;
-	letter-spacing: -0.01em;
+	letter-spacing: -0.015em;
 }
 
 h1,
@@ -69,26 +76,26 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 2.2rem 0 0.6rem;
+	margin: 2.6rem 0 0.7rem;
 	color: var(--fg);
 	line-height: 1.25;
 }
 
 h1 {
-	font-size: 1.9rem;
+	font-size: 1.85rem;
 }
 h2 {
-	font-size: 1.45rem;
+	font-size: 1.4rem;
 }
 h3 {
-	font-size: 1.2rem;
+	font-size: 1.15rem;
 }
 h4 {
-	font-size: 1.05rem;
+	font-size: 1rem;
 }
 
 p {
-	margin: 0 0 1.2em;
+	margin: 0 0 1.35em;
 }
 
 a {
@@ -98,6 +105,7 @@ a {
 	text-decoration-thickness: 1px;
 }
 a:hover {
+	color: var(--accent-hover);
 	text-decoration-thickness: 2px;
 }
 
@@ -120,34 +128,35 @@ img {
 table {
 	width: 100%;
 	border-collapse: collapse;
+	font-size: 0.95rem;
 }
 th,
 td {
 	border: 1px solid var(--border);
-	padding: 0.4em 0.6em;
+	padding: 0.45em 0.7em;
 	text-align: left;
 }
 
-/* Code: mono everywhere; blocks on the dark canvas in both modes. */
+/* Code: mono everywhere; blocks on the dark canvas (brand touch). */
 code {
 	font-family: var(--font-mono);
-	font-size: 0.85em;
+	font-size: 0.84em;
 }
 :not(pre) > code {
-	background: light-dark(#f0f1f3, #161b22);
+	background: var(--bg-offset);
 	border: 1px solid var(--border);
 	border-radius: 4px;
 	padding: 0.1em 0.35em;
 }
 pre {
 	background: var(--code-bg) !important;
-	color: #e6edf3;
+	color: var(--code-fg);
 	border: 1px solid var(--code-border);
-	border-radius: 6px;
-	padding: 1rem 1.1rem;
+	border-radius: 8px;
+	padding: 1.1rem 1.2rem;
 	overflow-x: auto;
-	font-size: 0.85rem;
-	line-height: 1.5;
+	font-size: 0.82rem;
+	line-height: 1.55;
 }
 pre > code {
 	all: unset;
@@ -156,22 +165,23 @@ pre > code {
 
 blockquote {
 	border-left: 3px solid var(--accent);
-	padding-left: 1rem;
-	margin: 1.5rem 0;
+	padding-left: 1.1rem;
+	margin: 1.6rem 0;
 	color: var(--fg-secondary);
+	font-style: italic;
 }
 
 ::selection {
 	background: var(--accent);
-	color: var(--bg);
+	color: #fff;
 }
 
 @media (max-width: 720px) {
 	body {
-		font-size: 18px;
+		font-size: 18.5px;
 	}
 	main {
-		padding: 2rem 1.1rem 4rem;
+		padding: 2.25rem 1.15rem 4rem;
 	}
 }
 
