@@ -1,9 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Subscribe from '../components/Subscribe.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <!doctype html>
@@ -14,16 +20,77 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Valentyn Kit</h1>
-			<p>
-				Distributed-systems and platform engineer working from first
-				principles, one level below and one level above. Writing about systems
-				from the architecture down to the bits: C and Rust, operating systems,
-				networking, databases, and building things from scratch to understand them.
-			</p>
-			<p><a href="/blog/">Read the writing</a> or <a href="/about/">about me</a>.</p>
+			<section class="intro">
+				<p>
+					I'm <strong>Valentyn Kit</strong>, a distributed-systems and platform
+					engineer. I write about systems from the metal up: C and Rust,
+					operating systems, networking, databases, and building things from
+					scratch to understand them. One level below and one level above.
+				</p>
+				<p class="meta">
+					<a href="https://github.com/valentynkit">github</a> ·
+					<a href="https://www.linkedin.com/in/valentynkit">linkedin</a> ·
+					<a href="/resume">résumé</a>
+				</p>
+			</section>
+			<hr />
+			<section class="feed">
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/blog/${post.id}/`} class="title">
+									{post.data.title}
+								</a>
+								<p class="date">
+									<FormattedDate date={post.data.pubDate} />
+								</p>
+								<p class="dek">{post.data.description}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
 			<Subscribe />
 		</main>
 		<Footer />
 	</body>
 </html>
+<style>
+	.intro p {
+		margin: 0 0 1rem;
+	}
+	.meta {
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		color: var(--fg-muted);
+	}
+	.feed ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.feed li {
+		margin-bottom: 2.2rem;
+	}
+	.title {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.15rem;
+		color: var(--fg);
+		text-decoration: none;
+	}
+	.title:hover {
+		color: var(--accent);
+	}
+	.date {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		color: var(--fg-muted);
+		margin: 0.25rem 0 0.4rem;
+	}
+	.dek {
+		color: var(--fg-secondary);
+		margin: 0;
+	}
+</style>
