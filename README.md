@@ -1,12 +1,10 @@
 # valentynkit.com
 
-Personal site and blog for Valentyn Kit. This is the canonical home for long-form
-writing in the content pipeline: essays are authored here as markdown, deployed to
-Vercel, and syndicated outward (Dev.to, Hashnode, X, LinkedIn, the newsletter) with
-canonical links pointing back here.
+Personal site and blog for Valentyn Kit. Essays are authored here as markdown and
+deployed to Vercel. Long-form pieces are the canonical source; they are syndicated
+to other platforms with canonical links pointing back here.
 
-Built with Astro (blog starter). The design and the wider pipeline live in the
-PersonalOS repo: `docs/specs/2026-06-24-content-pipeline-stage-9-design.md`.
+Built with Astro.
 
 ## Commands
 
