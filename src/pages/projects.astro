@@ -54,7 +54,7 @@ const projects = [
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main">
 			<h1>Projects</h1>
 			<p>
 				Side projects and tinkering, presented as such. Self-directed systems and
@@ -62,14 +62,16 @@ const projects = [
 				source and full write-ups live on
 				<a href="https://github.com/valentynkit">GitHub</a>.
 			</p>
-			<ul>
+			<ul class="manifest">
 				{
 					projects.map((p) => (
 						<li>
-							<a href={p.href} class="name">
-								{p.name}
-							</a>
-							<span class="lang">{p.lang}</span>
+							<div class="row">
+								<a class="name" href={p.href}>
+									{p.name}
+								</a>
+								<span class="lang">{p.lang}</span>
+							</div>
 							<p class="blurb">{p.blurb}</p>
 						</li>
 					))
@@ -80,19 +82,27 @@ const projects = [
 	</body>
 </html>
 <style>
-	ul {
+	.manifest {
 		list-style: none;
 		margin: 2rem 0 0;
 		padding: 0;
+		border-top: 1px solid var(--border);
 	}
-	li {
-		margin-bottom: 1.8rem;
+	.manifest li {
+		padding: 1.05rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	.row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
 	}
 	.name {
 		font-family: var(--font-mono);
 		font-weight: 700;
 		font-size: 1.05rem;
-		color: var(--fg);
+		color: var(--fg-strong);
 		text-decoration: none;
 	}
 	.name:hover {
@@ -102,11 +112,11 @@ const projects = [
 		font-family: var(--font-mono);
 		font-size: 0.72rem;
 		color: var(--accent);
-		margin-left: 0.6rem;
-		vertical-align: middle;
+		white-space: nowrap;
 	}
 	.blurb {
 		color: var(--fg-secondary);
+		font-size: 0.95rem;
 		margin: 0.3rem 0 0;
 	}
 </style>
