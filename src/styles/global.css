@@ -25,7 +25,7 @@
 
 	--font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 	/* --font-sans is injected by the Astro Fonts API <Font> component */
-	--measure: 70ch;
+	--measure: 41rem; /* font-independent: ch resolves per-element font, so mono header/footer would misalign with the sans body */
 }
 
 * {
@@ -222,6 +222,9 @@ blockquote {
 	gap: 0 1.5rem;
 	padding: 1.15rem 0;
 	border-bottom: 1px solid var(--border);
+}
+.entries li:last-child {
+	border-bottom: none;
 }
 .entries .when {
 	font-family: var(--font-mono);
