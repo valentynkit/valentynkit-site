@@ -1,8 +1,51 @@
-# valentynkit.com
-# Allow all crawlers, including search and AI answer engines. Discovery and
-# citation are the point; training crawlers are allowed too (blocking is
-# non-retroactive and being in the corpus is how a model knows the work).
+# valentynkit.com - robots policy
+# Posture: allow everything. Discovery and AI citation are the goal; training
+# crawlers are allowed too (blocking is non-retroactive, and being in the corpus
+# is how a model knows the work). To opt a bot out of training later, flip its
+# Allow to Disallow. A named block fully overrides the wildcard for that bot.
+
 User-agent: *
 Allow: /
 
+# Search + AI answer-engine crawlers, named to make the intent explicit.
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
 Sitemap: https://valentynkit.com/sitemap-index.xml
+# Curated index for LLMs: https://valentynkit.com/llms.txt
