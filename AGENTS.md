@@ -1,3 +1,23 @@
+## Design and brand (hold this line)
+
+This is a deliberate credible-minimal site for a systems engineer. Read the
+"Design and brand" section of `README.md` before changing anything visual, and
+keep to it:
+
+- One orange accent, light/dark tuned (`#f0883e` / `#bc4c00`). No second accent,
+  no gradients, ever.
+- Monospace is the brand layer (headings, nav, code, UI); `EB Garamond` serif is
+  body prose only. Prose measure stays ~68ch.
+- Dark by default via `light-dark()`; near-black, not pure black.
+- Never add the generic tells: Inter as primary, hero illustrations, skill bars,
+  GitHub stat/streak widgets, badge soup, "Hi I'm X" copy. Restraint is the brand.
+- Brand tokens live in `src/styles/global.css` (CSS variables). The upstream
+  source of truth is the owner's brand file; mirror changes, don't fork values.
+
+Prose written here (essays, about, resume) must read as human-authored: no
+AI-tell words (comprehensive, robust, seamless, leverage, delve), no em dashes,
+no hype. Lead with the systems substance.
+
 ## Development
 
 When starting the dev server, use background mode:
