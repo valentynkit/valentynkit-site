@@ -19,9 +19,11 @@ const posts = (await getCollection('blog')).sort(
 	</head>
 	<body>
 		<Header />
-		<main>
-			<section class="intro">
-				<p>
+		<main id="main">
+			<section class="intro rise">
+				<p class="eyebrow">systems engineer · c · rust · solana</p>
+				<h1 class="sr-only">Valentyn Kit</h1>
+				<p class="lede">
 					I'm <strong>Valentyn Kit</strong>, a distributed-systems and platform
 					engineer. I write about systems from the metal up: C and Rust,
 					operating systems, networking, databases, and building things from
@@ -33,64 +35,37 @@ const posts = (await getCollection('blog')).sort(
 					<a href="/resume">résumé</a>
 				</p>
 			</section>
-			<hr />
-			<section class="feed">
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`} class="title">
+
+			<p class="eyebrow writing-label">writing</p>
+			<ul class="entries">
+				{
+					posts.map((post, i) => (
+						<li class="rise" style={`animation-delay:${Math.min(120 + i * 60, 480)}ms`}>
+							<span class="when">
+								<FormattedDate date={post.data.pubDate} />
+							</span>
+							<div class="what">
+								<a class="headline" href={`/blog/${post.id}/`}>
 									{post.data.title}
 								</a>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-								<p class="dek">{post.data.description}</p>
-							</li>
-						))
-					}
-				</ul>
-			</section>
+								<p class="summary">{post.data.description}</p>
+							</div>
+						</li>
+					))
+				}
+			</ul>
 			<Subscribe />
 		</main>
 		<Footer />
 	</body>
 </html>
 <style>
-	.intro p {
+	.lede {
+		font-size: 1.1rem;
+		color: var(--fg);
 		margin: 0 0 1rem;
 	}
-	.meta {
-		font-family: var(--font-mono);
-		font-size: 0.85rem;
-		color: var(--fg-muted);
-	}
-	.feed ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	.feed li {
-		margin-bottom: 2.2rem;
-	}
-	.title {
-		font-family: var(--font-mono);
-		font-weight: 700;
-		font-size: 1.15rem;
-		color: var(--fg);
-		text-decoration: none;
-	}
-	.title:hover {
-		color: var(--accent);
-	}
-	.date {
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		color: var(--fg-muted);
-		margin: 0.25rem 0 0.4rem;
-	}
-	.dek {
-		color: var(--fg-secondary);
-		margin: 0;
+	.writing-label {
+		margin-top: 3.5rem;
 	}
 </style>

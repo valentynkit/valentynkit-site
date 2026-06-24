@@ -49,6 +49,11 @@ template aesthetics.
   is a sans, not a serif, because serif strokes read too thin on dark. No light
   mode (it was tried and rejected).
 - **Code blocks:** Shiki `github-dark` on a raised dark panel `#161b22`.
+- **Feed:** writing lists are changelog-style (a monospace date column with
+  hairline rules), the "systems log" motif. One restrained page-load reveal
+  (reduced-motion respected).
+- **Accessibility:** skip-to-content link, visible focus rings, an `h1` per page,
+  and prev / next / back links on posts.
 
 Avoid: Inter as the primary face, gradients, hero illustrations, skill bars,
 GitHub stat/streak cards, badge soup, "Hi I'm X" copy. Restraint is the point.

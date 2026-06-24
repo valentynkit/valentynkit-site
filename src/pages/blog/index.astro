@@ -19,19 +19,22 @@ const description = 'Writing on systems from first principles: C, Rust, operatin
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main">
 			<h1>Writing</h1>
-			<ul>
+			<p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+			<ul class="entries">
 				{
 					posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.id}/`} class="title">
-								{post.data.title}
-							</a>
-							<p class="date">
+							<span class="when">
 								<FormattedDate date={post.data.pubDate} />
-							</p>
-							<p class="dek">{post.data.description}</p>
+							</span>
+							<div class="what">
+								<a class="headline" href={`/blog/${post.id}/`}>
+									{post.data.title}
+								</a>
+								<p class="summary">{post.data.description}</p>
+							</div>
 						</li>
 					))
 				}
@@ -40,33 +43,3 @@ const description = 'Writing on systems from first principles: C, Rust, operatin
 		<Footer />
 	</body>
 </html>
-<style>
-	ul {
-		list-style: none;
-		margin: 2rem 0 0;
-		padding: 0;
-	}
-	li {
-		margin-bottom: 2.2rem;
-	}
-	.title {
-		font-family: var(--font-mono);
-		font-weight: 700;
-		font-size: 1.15rem;
-		color: var(--fg);
-		text-decoration: none;
-	}
-	.title:hover {
-		color: var(--accent);
-	}
-	.date {
-		font-family: var(--font-mono);
-		font-size: 0.78rem;
-		color: var(--fg-muted);
-		margin: 0.25rem 0 0.4rem;
-	}
-	.dek {
-		color: var(--fg-secondary);
-		margin: 0;
-	}
-</style>

@@ -6,9 +6,13 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Subscribe from '../components/Subscribe.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Entry = CollectionEntry<'blog'>;
+type Props = Entry['data'] & {
+	prev?: Pick<Entry, 'id'> & { data: Pick<Entry['data'], 'title'> } | null;
+	next?: Pick<Entry, 'id'> & { data: Pick<Entry['data'], 'title'> } | null;
+};
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, description, pubDate, updatedDate, prev, next } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,12 +21,12 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main">
 			<article>
-				<header class="post-header">
-					<p class="date">
+				<header class="post-header rise">
+					<p class="eyebrow">
 						<FormattedDate date={pubDate} />
-						{updatedDate && <span class="updated"> · updated <FormattedDate date={updatedDate} /></span>}
+						{updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
 					</p>
 					<h1>{title}</h1>
 				</header>
@@ -30,26 +34,31 @@ const { title, description, pubDate, updatedDate } = Astro.props;
 					<slot />
 				</div>
 			</article>
+
+			{
+				(prev || next) && (
+					<nav class="post-nav">
+						<span>{prev && <a href={`/blog/${prev.id}/`}>← {prev.data.title}</a>}</span>
+						<span class="next">{next && <a href={`/blog/${next.id}/`}>{next.data.title} →</a>}</span>
+					</nav>
+				)
+			}
+			<p class="meta backlink"><a href="/blog/">← all writing</a></p>
+
 			<Subscribe />
 		</main>
 		<Footer />
 	</body>
 </html>
 <style>
-	.post-header {
-		margin-bottom: 2rem;
-	}
 	.post-header h1 {
-		margin: 0.3rem 0 0;
-	}
-	.date {
-		font-family: var(--font-mono);
-		font-size: 0.8rem;
-		color: var(--fg-muted);
-		margin: 0;
+		margin: 0.4rem 0 0;
 	}
 	.prose :global(h2),
 	.prose :global(h3) {
 		margin-top: 2.4rem;
+	}
+	.backlink {
+		margin-top: 2rem;
 	}
 </style>
