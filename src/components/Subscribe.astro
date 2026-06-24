@@ -12,7 +12,8 @@ const popup = `https://buttondown.email/${BUTTONDOWN_USERNAME}`;
 	onsubmit={`window.open('${popup}', 'popupwindow')`}
 	class="subscribe"
 >
-	<label for="bd-email">New essays by email, no spam.</label>
+	<p class="eyebrow">newsletter</p>
+	<label for="bd-email">New essays in your inbox when I publish. No spam, unsubscribe anytime.</label>
 	<div class="row">
 		<input type="email" name="email" id="bd-email" placeholder="you@email.com" required />
 		<button type="submit">subscribe</button>
@@ -21,15 +22,18 @@ const popup = `https://buttondown.email/${BUTTONDOWN_USERNAME}`;
 <style>
 	.subscribe {
 		border-top: 1px solid var(--border);
-		margin-top: 3rem;
-		padding-top: 1.5rem;
+		margin-top: 4rem;
+		padding-top: 2rem;
 		font-family: var(--font-mono);
+	}
+	.eyebrow {
+		margin-bottom: 0.5rem;
 	}
 	label {
 		display: block;
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 		color: var(--fg-secondary);
-		margin-bottom: 0.6rem;
+		margin-bottom: 0.9rem;
 	}
 	.row {
 		display: flex;

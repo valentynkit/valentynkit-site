@@ -10,9 +10,10 @@ interface Props {
 	description: string;
 	image?: string;
 	article?: { pubDate: Date; updatedDate?: Date };
+	profile?: boolean;
 }
 
-const { title, description, image = '/og-default.png', article } = Astro.props;
+const { title, description, image = '/og-default.png', article, profile } = Astro.props;
 
 const site = Astro.site!;
 const canonicalURL = new URL(Astro.url.pathname, site);
@@ -30,6 +31,17 @@ const person = {
 	name: 'Valentyn Kit',
 	url: site.href,
 	jobTitle: 'Distributed-systems & platform engineer',
+	description:
+		'Distributed-systems and platform engineer working in Rust on money-movement systems, deepening toward Solana protocol engineering.',
+	knowsAbout: [
+		'Rust',
+		'distributed systems',
+		'network protocols',
+		'databases',
+		'operating systems',
+		'Solana',
+		'backend engineering',
+	],
 	sameAs: [GITHUB, LINKEDIN, X],
 };
 const website = {
@@ -64,6 +76,14 @@ if (article) {
 		],
 	});
 }
+if (profile) {
+	graph.push({
+		'@type': 'ProfilePage',
+		'@id': `${canonicalURL.href}#profilepage`,
+		url: canonicalURL.href,
+		mainEntity: { '@id': personId },
+	});
+}
 const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 ---
 
@@ -85,6 +105,10 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 <Font cssVariable="--font-sans" preload />
 
 <link rel="canonical" href={canonicalURL} />
+
+<!-- rel=me identity links (IndieWeb / entity corroboration) -->
+<link rel="me" href={GITHUB} />
+<link rel="me" href={X} />
 
 <title>{title}</title>
 <meta name="title" content={title} />

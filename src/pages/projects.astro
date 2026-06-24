@@ -4,44 +4,44 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
-const description = 'Side projects: systems and Rust/C craft. Storage engines, TCP servers, a Solana indexer.';
+const description = 'Side projects in C and Rust: a small Redis, TCP servers across seven I/O models, a row-oriented database, a Solana indexer. Built from scratch to understand the layer underneath.';
 
 // Curated link-out list; the GitHub READMEs are the source of truth.
 const projects = [
 	{
 		name: 'bytekv',
 		lang: 'C',
-		blurb: 'A small Redis: event loop, append-only persistence, compaction.',
+		blurb: 'A small Redis in C: event loop, append-only log, compaction. Built to find out where the line between fast and durable actually gets drawn.',
 		href: 'https://github.com/valentynkit/bytekv',
 	},
 	{
 		name: 'building-tcp-servers-in-c',
 		lang: 'C',
-		blurb: 'One echo server, seven I/O models: blocking, nonblocking, select, poll, epoll/kqueue.',
+		blurb: 'One echo server written seven ways, from blocking up through select, poll, epoll, and kqueue. The point was to feel exactly what each I/O model buys you.',
 		href: 'https://github.com/valentynkit/building-tcp-servers-in-c',
 	},
 	{
 		name: 'building-tcp-servers-in-rust',
 		lang: 'Rust',
-		blurb: 'The Rust sibling: blocking through mio and tokio, one cross-backend test.',
+		blurb: 'The same exercise in Rust, from blocking up through mio and tokio, with one test that runs across every backend. Async stops being magic once you have hand-written the thing underneath it.',
 		href: 'https://github.com/valentynkit/building-tcp-servers-in-rust',
 	},
 	{
 		name: 'RowOrient_DB',
 		lang: 'C',
-		blurb: 'An in-memory, row-oriented database, built to understand storage layout.',
+		blurb: 'An in-memory, row-oriented database in C. Built to answer the one question I kept hand-waving past: where do the bytes actually go.',
 		href: 'https://github.com/valentynkit/RowOrient_DB',
 	},
 	{
 		name: 'Solarix',
 		lang: 'Rust',
-		blurb: 'A Solana indexer. Trajectory work, toward protocol engineering.',
+		blurb: 'A Solana indexer in Rust. Trajectory work: the on-ramp from building on the chain toward understanding the chain itself.',
 		href: 'https://github.com/valentynkit/Solarix',
 	},
 	{
 		name: 'x402_CLI',
 		lang: 'Rust',
-		blurb: 'A CLI for the x402 payments protocol on Solana.',
+		blurb: 'A CLI for the x402 payments protocol on Solana. Small, but it moves a real dollar over a spec, which is the fastest way I know to actually learn one.',
 		href: 'https://github.com/valentynkit/x402_CLI',
 	},
 ];
@@ -57,9 +57,9 @@ const projects = [
 		<main id="main">
 			<h1>Projects</h1>
 			<p>
-				Side projects and tinkering, presented as such. Self-directed systems and
-				Rust/C craft, built from scratch to understand the layer underneath. The
-				source and full write-ups live on
+				Side projects, and I'll call them that. Each one is the smaller, wronger
+				version of something I depend on, built from scratch until I could see how
+				the real thing works. Source and full write-ups are on
 				<a href="https://github.com/valentynkit">GitHub</a>.
 			</p>
 			<ul class="manifest">

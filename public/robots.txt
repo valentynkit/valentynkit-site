@@ -1,0 +1,8 @@
+# valentynkit.com
+# Allow all crawlers, including search and AI answer engines. Discovery and
+# citation are the point; training crawlers are allowed too (blocking is
+# non-retroactive and being in the corpus is how a model knows the work).
+User-agent: *
+Allow: /
+
+Sitemap: https://valentynkit.com/sitemap-index.xml
