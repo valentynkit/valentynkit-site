@@ -14,14 +14,17 @@ export default defineConfig({
 	},
 	fonts: [
 		{
-			// Serif is the only webfont the site loads; used for body prose only.
+			// Body is the only webfont the site loads. IBM Plex Sans: engineering
+			// pedigree, reads cleanly on the dark surface (serif died on dark).
+			// The brand layer (wordmark, headings, nav, code) is the system mono
+			// stack, no font load.
 			provider: fontProviders.google(),
-			name: 'EB Garamond',
-			cssVariable: '--font-serif',
-			weights: [400, 500, 600, 700],
+			name: 'IBM Plex Sans',
+			cssVariable: '--font-sans',
+			weights: [400, 600, 700],
 			styles: ['normal', 'italic'],
 			subsets: ['latin'],
-			fallbacks: ['Georgia', 'serif'],
+			fallbacks: ['system-ui', 'sans-serif'],
 		},
 	],
 });
