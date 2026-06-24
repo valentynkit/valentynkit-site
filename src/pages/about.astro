@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
-const description = 'Valentyn Kit is a distributed-systems and platform engineer with deep data-intensive and FinTech backend roots, deepening toward low-level systems and blockchain protocol engineering in Rust.';
+const description = 'Valentyn Kit builds money-movement systems in Rust and rebuilds everything underneath from scratch. Six years of reliability-critical backends, heading toward Solana protocol engineering.';
 ---
 
 <!doctype html>
@@ -17,25 +17,32 @@ const description = 'Valentyn Kit is a distributed-systems and platform engineer
 		<main id="main">
 			<h1>About</h1>
 			<p>
-				I'm <strong>Valentyn Kit</strong>, a distributed-systems and platform
-				engineer with deep data-intensive and FinTech backend roots. I work from
-				first principles, one level below and one level above: up to how complex
-				pieces fit and behave together, and down to how they actually run.
+				I'm <strong>Valentyn Kit</strong>. I've spent six years getting paid to
+				build systems that aren't allowed to be wrong.
 			</p>
 			<p>
-				Across six years I've built data-intensive backends and reliability-critical
-				systems, from document-processing pipelines for the United Nations, to a
-				high-concurrency Web3 game economy, to an agentic-AI platform. Today I lead
-				the platform for a self-custody FinTech wallet (200K monthly users), where
-				the core is written in Rust: one reliable interface over many blockchains,
-				state-machine money movement, and self-custody signing.
+				Right now I lead the platform for a self-custody wallet that moves money
+				for 200,000 people. The core is Rust: one reliable interface over a dozen
+				blockchains, money movement modeled as durable state machines that survive
+				crashes and chain reorgs, signing that never trusts a single machine.
+				Before this it was data-intensive document pipelines, a high-concurrency
+				game economy, and an agentic-AI platform. Different domains, same job
+				underneath: reliability under load, the systems where "mostly works" is a
+				failing grade.
 			</p>
 			<p>
-				Alongside the day job I teach myself systems from the metal up in C and
-				Rust, operating systems, networking, and databases, and I'm deepening
-				toward blockchain protocol engineering on Solana. The durable value lives
-				in understanding the whole system, end to end, no hand-waving. Tools,
-				including AI, are leverage; fundamentals are the moat.
+				I got good at that job by doing something quieter on nights and weekends.
+				I rebuild the layer underneath from scratch to understand it. A small
+				Redis in C. TCP servers across seven I/O models. A row-oriented database.
+				A Solana indexer. Systems only stick for me once I've built the smaller,
+				wronger version myself and watched where it breaks.
+			</p>
+			<p>
+				Where I'm headed is protocol engineering on Solana: consensus, validators,
+				the runtime. I'm not there yet, and I'll say so plainly. Today I build on
+				the chain, not the chain itself. This site is the record of closing that
+				gap in the open, one level below and one level above, with the bugs left
+				in.
 			</p>
 			<p class="links">
 				<a href="https://github.com/valentynkit">github</a> ·
