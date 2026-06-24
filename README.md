@@ -1,63 +1,30 @@
-# Astro Starter Kit: Blog
+# valentynkit.com
 
-```sh
-npm create astro@latest -- --template blog
-```
+Personal site and blog for Valentyn Kit. Essays are authored here as markdown and
+deployed to Vercel. Long-form pieces are the canonical source; they are syndicated
+to other platforms with canonical links pointing back here.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Built with Astro.
 
-Features:
+## Commands
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+Run from the repo root:
 
-## 🚀 Project Structure
+| Command | Action |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Dev server at localhost:4321 |
+| `npm run build` | Build to ./dist/ |
+| `npm run preview` | Preview the build |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Structure
 
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+- `src/content/blog/` essays (markdown), the source of truth
+- `src/pages/` routes (index, about, rss.xml)
+- `src/components/Subscribe.astro` Buttondown signup (confirm `BUTTONDOWN_USERNAME`)
+- `astro.config.mjs` site URL (canonical) and integrations
+- `src/consts.ts` site title and description
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Vercel, on push. Custom domain `valentynkit.com`.
