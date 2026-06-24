@@ -20,6 +20,29 @@ Prose written here (essays, about, resume) must read as human-authored: no
 AI-tell words (comprehensive, robust, seamless, leverage, delve), no em dashes,
 no hype. Lead with the systems substance.
 
+## SEO + GEO (hold this line)
+
+The site is built for search + AI-answer-engine citation. Keep these invariants
+(this is the self-contained checklist; the full reasoning lives in the owner's
+notes):
+
+- Stay statically rendered. AI crawlers do not run JS; never move key text, schema,
+  or meta into client-rendered islands. Verify with `curl`, not the inspector.
+- One canonical host (apex), self-referencing canonical on every page, single
+  redirect hop, consistent trailing slash; `*.vercel.app` stays noindex.
+- Keep the entity graph: `Person` (`@id` + `knowsAbout` + `sameAs` to
+  GitHub/LinkedIn/X), `ProfilePage` on /about, per-post `BlogPosting` (author by
+  `@id`, `datePublished` + `dateModified`). `sameAs` URLs identical and canonical.
+- `robots.txt` allows search/citation bots and names the sitemap; sitemap carries
+  real `lastmod`. Submit to Bing + Google; IndexNow on publish.
+- Performance: LCP image eager + `fetchpriority="high"` (never lazy); webfont
+  self-hosted + preloaded. Targets LCP < 2.5s, INP < 200ms, CLS < 0.1.
+- Per essay: real-name byline, answer-first lead, self-contained sections with
+  question-style headings, statistics + quotations + cited sources, a comparison
+  table where there is a tradeoff, concrete specifics, visible last-updated date.
+- Skip the dead stuff: FAQ/HowTo schema, `WebSite` SearchAction, treating
+  `llms.txt` as a citation booster.
+
 ## Development
 
 When starting the dev server, use background mode:
