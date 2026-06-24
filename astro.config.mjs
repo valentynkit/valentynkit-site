@@ -14,16 +14,17 @@ export default defineConfig({
 	},
 	fonts: [
 		{
-			// Serif is the only webfont the site loads; body prose only.
-			// Source Serif 4: large x-height, sturdy on screen (EB Garamond read
-			// too thin). Reading surface is light, where serif is legible.
+			// Body is the only webfont the site loads. IBM Plex Sans: engineering
+			// pedigree, reads cleanly on the dark surface (serif died on dark).
+			// The brand layer (wordmark, headings, nav, code) is the system mono
+			// stack, no font load.
 			provider: fontProviders.google(),
-			name: 'Source Serif 4',
-			cssVariable: '--font-serif',
+			name: 'IBM Plex Sans',
+			cssVariable: '--font-sans',
 			weights: [400, 600, 700],
 			styles: ['normal', 'italic'],
 			subsets: ['latin'],
-			fallbacks: ['Georgia', 'serif'],
+			fallbacks: ['system-ui', 'sans-serif'],
 		},
 	],
 });

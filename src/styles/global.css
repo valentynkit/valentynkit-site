@@ -1,30 +1,29 @@
 /*
   Brand tokens mirror persona/brand.md (the source of truth).
-  Reading surface is LIGHT: serif body (Source Serif 4) is only legible on a light
-  background, which is why every serif exemplar (matklad, Brandur, Dan Luu) is
-  light. Monospace is the brand layer (wordmark, headings, nav, code). Code blocks
-  keep the dark GitHub canvas so the dark+orange identity still shows on the page.
+  Dark only: the GitHub-dark canvas is the brand. Body is a screen-grade SANS
+  (IBM Plex Sans) because serif strokes die on near-black. Monospace is the brand
+  layer (wordmark, headings, nav, code). Body text is soft off-white, not pure
+  white, to avoid halation; headings are brighter. One accent: orange.
 */
 :root {
-	color-scheme: light;
+	color-scheme: dark;
 
-	--bg: #fcfcfa; /* warm off-white reading surface */
-	--bg-offset: #f2f1ea; /* subtle panels, inline code */
-	--fg: #1c1e22; /* near-black ink */
-	--fg-secondary: #4b515a;
-	--fg-muted: #6e7781;
-	--border: #e4e2d9;
-	--accent: #bc4c00; /* orange, readable on light (AA) */
-	--accent-hover: #97400b;
+	--bg: #0d1117; /* GitHub-dark canvas (matches banners + code) */
+	--bg-offset: #161b22; /* raised panels, inline code, code blocks */
+	--fg: #c9d1d9; /* body text, softened to reduce glare */
+	--fg-strong: #f0f6fc; /* headings, strong */
+	--fg-secondary: #9aa5b1;
+	--fg-muted: #768390;
+	--border: #21262d;
+	--accent: #f0883e; /* orange, bright variant for dark */
+	--accent-hover: #ffa657;
 
-	/* code blocks stay on the dark canvas (Shiki github-dark) */
-	--code-bg: #0d1117;
-	--code-fg: #e6edf3;
+	--code-bg: #161b22;
 	--code-border: #21262d;
 
 	--font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
-	/* --font-serif is injected by the Astro Fonts API <Font> component */
-	--measure: 68ch;
+	/* --font-sans is injected by the Astro Fonts API <Font> component */
+	--measure: 70ch;
 }
 
 * {
@@ -36,18 +35,17 @@ html {
 }
 
 body {
-	font-family: var(--font-serif, Georgia, serif);
+	font-family: var(--font-sans, system-ui, sans-serif);
 	margin: 0;
 	background: var(--bg);
 	color: var(--fg);
-	font-size: 20px;
-	line-height: 1.72;
+	font-size: 18px;
+	line-height: 1.7;
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
 main {
@@ -67,7 +65,7 @@ nav,
 .mono {
 	font-family: var(--font-mono);
 	font-weight: 700;
-	letter-spacing: -0.015em;
+	letter-spacing: -0.01em;
 }
 
 h1,
@@ -76,13 +74,13 @@ h3,
 h4,
 h5,
 h6 {
-	margin: 2.6rem 0 0.7rem;
-	color: var(--fg);
-	line-height: 1.25;
+	margin: 2.6rem 0 0.8rem;
+	color: var(--fg-strong);
+	line-height: 1.3;
 }
 
 h1 {
-	font-size: 1.85rem;
+	font-size: 1.8rem;
 }
 h2 {
 	font-size: 1.4rem;
@@ -95,7 +93,7 @@ h4 {
 }
 
 p {
-	margin: 0 0 1.35em;
+	margin: 0 0 1.3em;
 }
 
 a {
@@ -103,6 +101,7 @@ a {
 	text-decoration: underline;
 	text-underline-offset: 2px;
 	text-decoration-thickness: 1px;
+	transition: color 0.15s ease;
 }
 a:hover {
 	color: var(--accent-hover);
@@ -111,7 +110,8 @@ a:hover {
 
 strong,
 b {
-	font-weight: 700;
+	color: var(--fg-strong);
+	font-weight: 600;
 }
 
 hr {
@@ -123,6 +123,7 @@ hr {
 img {
 	max-width: 100%;
 	height: auto;
+	border-radius: 6px;
 }
 
 table {
@@ -137,26 +138,26 @@ td {
 	text-align: left;
 }
 
-/* Code: mono everywhere; blocks on the dark canvas (brand touch). */
+/* Code: mono everywhere; blocks raised on the dark canvas. */
 code {
 	font-family: var(--font-mono);
-	font-size: 0.84em;
+	font-size: 0.85em;
 }
 :not(pre) > code {
 	background: var(--bg-offset);
 	border: 1px solid var(--border);
 	border-radius: 4px;
 	padding: 0.1em 0.35em;
+	color: var(--fg-strong);
 }
 pre {
 	background: var(--code-bg) !important;
-	color: var(--code-fg);
 	border: 1px solid var(--code-border);
 	border-radius: 8px;
 	padding: 1.1rem 1.2rem;
 	overflow-x: auto;
-	font-size: 0.82rem;
-	line-height: 1.55;
+	font-size: 0.85rem;
+	line-height: 1.6;
 }
 pre > code {
 	all: unset;
@@ -168,17 +169,16 @@ blockquote {
 	padding-left: 1.1rem;
 	margin: 1.6rem 0;
 	color: var(--fg-secondary);
-	font-style: italic;
 }
 
 ::selection {
 	background: var(--accent);
-	color: #fff;
+	color: #0d1117;
 }
 
 @media (max-width: 720px) {
 	body {
-		font-size: 18.5px;
+		font-size: 17px;
 	}
 	main {
 		padding: 2.25rem 1.15rem 4rem;
