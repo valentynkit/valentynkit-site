@@ -1,0 +1,13 @@
+---
+// Buttondown embed posts straight to their endpoint; no secret in the client.
+// Confirm BUTTONDOWN_USERNAME matches the account handle after it is created.
+const BUTTONDOWN_USERNAME = 'valentynkit';
+const action = `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
+const popup = `https://buttondown.email/${BUTTONDOWN_USERNAME}`;
+---
+
+<form action={action} method="post" target="popupwindow" onsubmit={`window.open('${popup}', 'popupwindow')`} class="subscribe">
+	<label for="bd-email">Get new essays by email</label>
+	<input type="email" name="email" id="bd-email" placeholder="you@email.com" required />
+	<button type="submit">Subscribe</button>
+</form>
