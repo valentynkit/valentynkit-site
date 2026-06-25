@@ -18,7 +18,7 @@ That's the trade I kept not making: framework knowledge gets you productive fast
 
 ## How I got here
 
-The fourth time I learned async I was three stacks in. C# Tasks, then Go goroutines, then Rust's tokio. Each time it took about a week to get up to speed, and each time I thought I understood it. Moving to the next job, the understanding had reset in ways I didn't expect: I could explain the primitives but only in the vocabulary of the most recent stack. Strip the framework's names away and I was less certain than six years should have made me.
+Three stacks, three times learning the same thing: C# Tasks, then Go goroutines, then Rust's tokio. Each time it took about a week to get up to speed, and each time I thought I understood it. Moving to the next job, the understanding had reset in ways I didn't expect: I could explain the primitives but only in the vocabulary of the most recent stack. Strip the framework's names away and I was less certain than six years should have made me.
 
 Same thing with the other primitives I kept reaching for: idempotency, back-pressure, state machines. At each stop they showed up in different forms. I recognized them. I just didn't understand them in a way that would survive moving somewhere new.
 
@@ -28,7 +28,7 @@ At some point that stopped feeling like a normal learning curve.
 
 ## The seven-phase TCP server
 
-There's a document from 2003 by Dan Kegel called "The C10K Problem." The question it poses: how do you serve ten thousand clients with one server? The answer turns out to be very careful, and not what you'd first try.
+There's a document from the early 2000s by Dan Kegel called "The C10K Problem." The question it poses: how do you serve ten thousand clients with one server? The answer turns out to be very careful, and not what you'd first try.
 
 I built through it phase by phase.
 
@@ -74,6 +74,6 @@ I'm rebuilding the foundations from scratch: TCP servers, allocators, storage en
 
 I'm not a kernel hacker. I'm a backend engineer who got tired of relearning the same ideas at every new framework, went down to find where they live, and is climbing back up. The bugs stay in. The dead ends stay in. The parts I'm still working out stay in.
 
-Current position: TCP servers and simple allocators done. Next I want to understand what a memory allocator is actually trading off, because I've been reaching for `malloc` for six years and that's started to bother me.
+Current position: the TCP server is done, and a toy bump allocator. Next I want to understand what a real memory allocator is actually trading off, because I've been reaching for `malloc` for six years and that's started to bother me.
 
 Code is at [github.com/valentynkit](https://github.com/valentynkit). The TCP server is above; the allocator is next.
