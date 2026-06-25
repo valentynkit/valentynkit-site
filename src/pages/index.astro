@@ -21,15 +21,14 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main id="main">
 			<section class="intro rise">
-				<p class="eyebrow">systems engineer · c · rust · solana</p>
-				<h1 class="sr-only">Valentyn Kit</h1>
+				<p class="eyebrow">systems engineer · rust · c · solana</p>
+				<h1>Valentyn Kit</h1>
 				<p class="lede">
-					I'm <strong>Valentyn Kit</strong>. I build the Rust core of a
-					self-custody wallet that moves money for 200,000 people, where a wrong
-					state transition costs someone their funds. On nights and weekends I
-					rebuild the layer underneath from scratch, a database, a TCP server, a
-					Solana indexer, to learn how the real ones actually work. This is where
-					I write it down: one level below and one level above, no hand-waving.
+					A wrong state transition in a self-custody wallet costs someone their
+					funds. I build the Rust core of one. On nights and weekends I rebuild
+					the layer underneath from scratch — databases, TCP servers, a key-value
+					store in C — to see where the real ones break. This is where I write
+					both down.
 				</p>
 				<p class="meta">
 					<a href="https://github.com/valentynkit">github</a> · <a href="https://x.com/valentynkit">x</a> · <a href="/resume">résumé</a>
@@ -60,6 +59,9 @@ const posts = (await getCollection('blog')).sort(
 	</body>
 </html>
 <style>
+	.intro h1 {
+		margin-top: 0.3rem;
+	}
 	.lede {
 		font-size: 1.1rem;
 		color: var(--fg);
