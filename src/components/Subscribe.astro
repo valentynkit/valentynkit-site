@@ -2,20 +2,19 @@
 // Buttondown embed posts straight to their endpoint; no secret in the client.
 const BUTTONDOWN_USERNAME = 'valentynkit';
 const action = `https://buttondown.email/api/emails/embed-subscribe/${BUTTONDOWN_USERNAME}`;
-const popup = `https://buttondown.email/${BUTTONDOWN_USERNAME}`;
 ---
 
 <form
 	action={action}
 	method="post"
-	target="popupwindow"
-	onsubmit={`window.open('${popup}', 'popupwindow')`}
+	target="_blank"
 	class="subscribe"
 >
 	<p class="eyebrow">newsletter</p>
 	<label for="bd-email">Systems writing, by email. No spam.</label>
 	<div class="row">
 		<input type="email" name="email" id="bd-email" placeholder="you@email.com" required />
+		<input type="hidden" name="embed" value="1" />
 		<button type="submit">subscribe</button>
 	</div>
 </form>
