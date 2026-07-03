@@ -1,0 +1,46 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const description = 'One more step: confirm your email to start receiving the newsletter.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Check your inbox · ${SITE_TITLE}`} description={description} noindex />
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<p class="eyebrow">one more step</p>
+			<h1>Check your inbox</h1>
+			<p>
+				I just sent you a confirmation link. Click it and you're in — nothing
+				arrives until you do. The extra step is deliberate: I only mail addresses
+				a real person signed up with, which keeps the list honest and these emails
+				out of your spam folder.
+			</p>
+			<p>
+				It comes from <code>valentyn@mail.valentynkit.com</code>. Add that to your
+				contacts and the writing will land in your inbox instead of the promotions
+				pile.
+			</p>
+			<p>
+				Nothing after a few minutes? Check your spam and promotions tabs, and mark
+				it "not spam" so it reaches you next time.
+			</p>
+			<p class="meta">
+				<a href="/">home</a> · <a href="/blog">writing</a>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	.meta {
+		margin-top: 2rem;
+	}
+</style>

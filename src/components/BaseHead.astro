@@ -11,9 +11,10 @@ interface Props {
 	image?: string;
 	article?: { pubDate: Date; updatedDate?: Date };
 	profile?: boolean;
+	noindex?: boolean;
 }
 
-const { title, description, image = '/og-default.png', article, profile } = Astro.props;
+const { title, description, image = '/og-default.png', article, profile, noindex } = Astro.props;
 
 const site = Astro.site!;
 const canonicalURL = new URL(Astro.url.pathname, site);
@@ -96,6 +97,7 @@ const jsonLd = { '@context': 'https://schema.org', '@graph': graph };
 <meta name="color-scheme" content="dark" />
 <meta name="theme-color" content="#0d1117" />
 <meta name="generator" content={Astro.generator} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
