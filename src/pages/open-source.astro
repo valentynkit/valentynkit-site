@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE } from '../consts';
 import contributions from '../data/contributions.json';
 
@@ -51,14 +49,7 @@ const projects = [
 const { totals, repos } = contributions;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Open source · ${SITE_TITLE}`} description={description} />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
+<Layout title={`Open source · ${SITE_TITLE}`} description={description}>
 			<h1>Open source</h1>
 			<p>
 				Two kinds, kept apart on purpose. The layer underneath, rebuilt from
@@ -136,10 +127,7 @@ const { totals, repos } = contributions;
 					</>
 				)
 			}
-		</main>
-		<Footer />
-	</body>
-</html>
+</Layout>
 <style>
 	/* ---- Projects: curated manifest ---- */
 	.manifest {

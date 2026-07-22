@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE } from '../consts';
 
 const description = "You're subscribed. Systems writing, sent only when there's something worth your inbox.";
@@ -13,46 +11,36 @@ const [latest] = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`You're on the list · ${SITE_TITLE}`} description={description} noindex />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
-			<p class="eyebrow">you're in</p>
-			<h1>You're on the list</h1>
+<Layout title={`You're on the list · ${SITE_TITLE}`} description={description} noindex>
+	<p class="eyebrow">you're in</p>
+	<h1>You're on the list</h1>
+	<p>
+		Confirmed, and thank you. That last click is the whole difference between a
+		list of real readers and a pile of addresses, and I'd rather write for the
+		first kind.
+	</p>
+	<p>
+		Here's what you signed up for: systems writing, sent only when I have
+		something worth the interruption. Rust, the layer underneath it, and the
+		smaller, wronger versions I build to understand how the real ones work. No
+		cadence to keep, so nothing to pad.
+	</p>
+	{
+		latest && (
 			<p>
-				Confirmed, and thank you. That last click is the whole difference between a
-				list of real readers and a pile of addresses, and I'd rather write for the
-				first kind.
+				No reason to wait for the first issue. Start with the latest:{' '}
+				<a href={`/blog/${latest.id}/`}>{latest.data.title}</a>.
 			</p>
-			<p>
-				Here's what you signed up for: systems writing, sent only when I have
-				something worth the interruption. Rust, the layer underneath it, and the
-				smaller, wronger versions I build to understand how the real ones work. No
-				cadence to keep, so nothing to pad.
-			</p>
-			{
-				latest && (
-					<p>
-						No reason to wait for the first issue. Start with the latest:{' '}
-						<a href={`/blog/${latest.id}/`}>{latest.data.title}</a>.
-					</p>
-				)
-			}
-			<p>
-				One more thing: these letters aren't a broadcast. Reply to any of them — I
-				read every one, and the sharp questions tend to become the next piece.
-			</p>
-			<p class="meta">
-				<a href="/blog">writing</a> · <a href="/about">about</a> · <a href="/">home</a>
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+		)
+	}
+	<p>
+		One more thing: these letters aren't a broadcast. Reply to any of them — I
+		read every one, and the sharp questions tend to become the next piece.
+	</p>
+	<p class="meta">
+		<a href="/blog">writing</a> · <a href="/about">about</a> · <a href="/">home</a>
+	</p>
+</Layout>
 <style>
 	.meta {
 		margin-top: 2rem;

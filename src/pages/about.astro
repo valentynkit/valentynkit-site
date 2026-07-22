@@ -1,56 +1,44 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE } from '../consts';
 
 const description = 'Valentyn Kit builds the Rust core of money-movement systems and rebuilds the layer underneath from scratch. Six years of systems that aren\'t allowed to be wrong, heading toward Solana protocol engineering.';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`About · ${SITE_TITLE}`} description={description} profile />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
-			<h1>About</h1>
-			<p>
-				Same job, different domains: data-intensive pipelines, a game economy, an
-				AI platform, now the Rust core of a money-movement platform. The constant
-				is reliability under load.
-			</p>
-			<p>
-				Right now I lead the Rust platform for a self-custody wallet that moves
-				money for 200,000 people. The core is Rust: one reliable interface over a
-				dozen blockchains, money movement modeled as durable state machines that
-				survive crashes and chain reorgs, signing that never trusts a single
-				machine. Before this it was data-intensive document pipelines, a
-				high-concurrency game economy, and an agentic-AI platform. Different
-				domains, same job underneath: reliability under load, the systems where
-				"mostly works" is a failing grade.
-			</p>
-			<p>
-				I got good at that job by doing something quieter on nights and weekends.
-				I rebuild the layer underneath from scratch to understand it. A small
-				Redis in C. TCP servers across seven I/O models. A row-oriented database.
-				A Solana indexer. Systems only stick for me once I've built the smaller,
-				wronger version myself and watched where it breaks.
-			</p>
-			<p>
-				The goal is protocol engineering on Solana: consensus, validators, the
-				runtime. Today I build on the chain, not the chain itself. This site
-				is the record of closing that gap in the open, one level below and one
-				level above, with the bugs left in.
-			</p>
-			<p class="links">
-				<a href="https://github.com/valentynkit" rel="me">github</a> · <a href="https://www.linkedin.com/in/valentynkit" rel="me">linkedin</a> · <a href="https://x.com/valentynkit" rel="me">x</a> · <a href="/experience">experience</a> · <a href="mailto:valentynkit.work@pm.me">email</a>
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title={`About · ${SITE_TITLE}`} description={description} profile>
+	<h1>About</h1>
+	<p>
+		Same job, different domains: data-intensive pipelines, a game economy, an
+		AI platform, now the Rust core of a money-movement platform. The constant
+		is reliability under load.
+	</p>
+	<p>
+		Right now I lead the Rust platform for a self-custody wallet that moves
+		money for 200,000 people. The core is Rust: one reliable interface over a
+		dozen blockchains, money movement modeled as durable state machines that
+		survive crashes and chain reorgs, signing that never trusts a single
+		machine. Before this it was data-intensive document pipelines, a
+		high-concurrency game economy, and an agentic-AI platform. Different
+		domains, same job underneath: reliability under load, the systems where
+		"mostly works" is a failing grade.
+	</p>
+	<p>
+		I got good at that job by doing something quieter on nights and weekends.
+		I rebuild the layer underneath from scratch to understand it. A small
+		Redis in C. TCP servers across seven I/O models. A row-oriented database.
+		A Solana indexer. Systems only stick for me once I've built the smaller,
+		wronger version myself and watched where it breaks.
+	</p>
+	<p>
+		The goal is protocol engineering on Solana: consensus, validators, the
+		runtime. Today I build on the chain, not the chain itself. This site
+		is the record of closing that gap in the open, one level below and one
+		level above, with the bugs left in.
+	</p>
+	<p class="links">
+		<a href="https://github.com/valentynkit" rel="me">github</a> · <a href="https://www.linkedin.com/in/valentynkit" rel="me">linkedin</a> · <a href="https://x.com/valentynkit" rel="me">x</a> · <a href="/experience">experience</a> · <a href="mailto:valentynkit.work@pm.me">email</a>
+	</p>
+</Layout>
 <style>
 	.links {
 		font-family: var(--font-mono);

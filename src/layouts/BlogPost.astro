@@ -1,9 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
+import Layout from './Layout.astro';
 import Subscribe from '../components/Subscribe.astro';
 
 type Entry = CollectionEntry<'blog'>;
@@ -15,41 +13,32 @@ type Props = Entry['data'] & {
 const { title, description, pubDate, updatedDate, prev, next } = Astro.props;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} article={{ pubDate, updatedDate }} />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
-			<article>
-				<header class="post-header rise">
-					<p class="eyebrow">
-						<FormattedDate date={pubDate} />
-						{updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
-					</p>
-					<h1>{title.replace(/-/g, '‑')}</h1>
-				</header>
-				<div class="prose">
-					<slot />
-				</div>
-			</article>
+<Layout title={title} description={description} article={{ pubDate, updatedDate }}>
+	<article>
+		<header class="post-header rise">
+			<p class="eyebrow">
+				<FormattedDate date={pubDate} />
+				{updatedDate && <span> · updated <FormattedDate date={updatedDate} /></span>}
+			</p>
+			<h1>{title.replace(/-/g, '‑')}</h1>
+		</header>
+		<div class="prose">
+			<slot />
+		</div>
+	</article>
 
-			{
-				(prev || next) && (
-					<nav class="post-nav">
-						<span>{prev && <a href={`/blog/${prev.id}/`}>← {prev.data.title}</a>}</span>
-						<span class="next">{next && <a href={`/blog/${next.id}/`}>{next.data.title} →</a>}</span>
-					</nav>
-				)
-			}
-			<p class="meta backlink"><a href="/blog/">← all writing</a></p>
+	{
+		(prev || next) && (
+			<nav class="post-nav">
+				<span>{prev && <a href={`/blog/${prev.id}/`}>← {prev.data.title}</a>}</span>
+				<span class="next">{next && <a href={`/blog/${next.id}/`}>{next.data.title} →</a>}</span>
+			</nav>
+		)
+	}
+	<p class="meta backlink"><a href="/blog/">← all writing</a></p>
 
-			<Subscribe />
-		</main>
-		<Footer />
-	</body>
-</html>
+	<Subscribe />
+</Layout>
 <style>
 	.post-header .eyebrow {
 		margin-bottom: 0.4rem;
