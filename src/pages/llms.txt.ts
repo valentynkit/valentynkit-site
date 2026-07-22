@@ -32,6 +32,7 @@ export async function GET(context) {
 		`- [About](${new URL('/about/', site).href}): who I am, the work, and where I am headed.`,
 		`- [Open source](${new URL('/open-source/', site).href}): side projects in C and Rust built from scratch, and merged contributions to rust-lang, Solana/agave, and other upstreams.`,
 		`- [Experience](${new URL('/experience/', site).href}): work history and skills.`,
+		`- [Library](${new URL('/library/', site).href}): books, papers and talks that shaped how I think, with a candid take on each.`,
 		'',
 		'## Optional',
 		`- [Full text of all essays](${new URL('/llms-full.txt', site).href}): every post concatenated as markdown.`,
