@@ -1,0 +1,250 @@
+{
+	"totals": {
+		"merged": 15,
+		"open": 8,
+		"repos": 8
+	},
+	"repos": [
+		{
+			"repo": "rust-lang/rust",
+			"repoUrl": "https://github.com/rust-lang/rust",
+			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 9,
+			"open": 4,
+			"closed": 1,
+			"prs": [
+				{
+					"number": 159511,
+					"title": "std: count all processor groups in available_parallelism on Windows",
+					"url": "https://github.com/rust-lang/rust/pull/159511",
+					"state": "open",
+					"date": "2026-07-18"
+				},
+				{
+					"number": 159305,
+					"title": "std: clarify available_parallelism docs for Windows 11 processor groups",
+					"url": "https://github.com/rust-lang/rust/pull/159305",
+					"state": "merged",
+					"date": "2026-07-14"
+				},
+				{
+					"number": 159098,
+					"title": "Add Arc/Rc::strong_count_from_raw",
+					"url": "https://github.com/rust-lang/rust/pull/159098",
+					"state": "open",
+					"date": "2026-07-10"
+				},
+				{
+					"number": 159070,
+					"title": "Add `io::ErrorKind::InputOutputError`",
+					"url": "https://github.com/rust-lang/rust/pull/159070",
+					"state": "merged",
+					"date": "2026-07-10"
+				},
+				{
+					"number": 158870,
+					"title": "std: merge the unix-like io::error modules into one file",
+					"url": "https://github.com/rust-lang/rust/pull/158870",
+					"state": "merged",
+					"date": "2026-07-06"
+				},
+				{
+					"number": 158775,
+					"title": "bootstrap: only encode RUSTFLAGS when a flag contains a space",
+					"url": "https://github.com/rust-lang/rust/pull/158775",
+					"state": "merged",
+					"date": "2026-07-04"
+				},
+				{
+					"number": 158726,
+					"title": "std: move futex implementations into sys::sync::futex",
+					"url": "https://github.com/rust-lang/rust/pull/158726",
+					"state": "open",
+					"date": "2026-07-03"
+				},
+				{
+					"number": 158580,
+					"title": "std: map ENOTSUP to ErrorKind::Unsupported",
+					"url": "https://github.com/rust-lang/rust/pull/158580",
+					"state": "open",
+					"date": "2026-06-29"
+				},
+				{
+					"number": 158486,
+					"title": "std: treat ENFILE as transient in the pidfd support probe",
+					"url": "https://github.com/rust-lang/rust/pull/158486",
+					"state": "merged",
+					"date": "2026-06-27"
+				},
+				{
+					"number": 158484,
+					"title": "Add documentation for the `cold` and `track_caller` attributes",
+					"url": "https://github.com/rust-lang/rust/pull/158484",
+					"state": "merged",
+					"date": "2026-06-27"
+				},
+				{
+					"number": 158348,
+					"title": "Add documentation for the `inline` attribute",
+					"url": "https://github.com/rust-lang/rust/pull/158348",
+					"state": "merged",
+					"date": "2026-06-24"
+				},
+				{
+					"number": 158326,
+					"title": "Add `io::ErrorKind::TooManyOpenFiles`",
+					"url": "https://github.com/rust-lang/rust/pull/158326",
+					"state": "merged",
+					"date": "2026-06-23"
+				},
+				{
+					"number": 158074,
+					"title": "Document transient connection errors from TcpListener::accept",
+					"url": "https://github.com/rust-lang/rust/pull/158074",
+					"state": "merged",
+					"date": "2026-06-18"
+				}
+			]
+		},
+		{
+			"repo": "anza-xyz/agave",
+			"repoUrl": "https://github.com/anza-xyz/agave",
+			"prsUrl": "https://github.com/anza-xyz/agave/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 2,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 13667,
+					"title": "fs: skip unreadable dirs when probing direct-io support",
+					"url": "https://github.com/anza-xyz/agave/pull/13667",
+					"state": "merged",
+					"date": "2026-07-05"
+				},
+				{
+					"number": 13659,
+					"title": "feat(storage-proto): make protobuf-src an optional dependency",
+					"url": "https://github.com/anza-xyz/agave/pull/13659",
+					"state": "open",
+					"date": "2026-07-04"
+				},
+				{
+					"number": 13655,
+					"title": "vote: enforce vote state view item alignment on production builds",
+					"url": "https://github.com/anza-xyz/agave/pull/13655",
+					"state": "merged",
+					"date": "2026-07-03"
+				}
+			]
+		},
+		{
+			"repo": "beetbox/beets",
+			"repoUrl": "https://github.com/beetbox/beets",
+			"prsUrl": "https://github.com/beetbox/beets/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 6838,
+					"title": "Make InQuery hashable when its pattern is a list",
+					"url": "https://github.com/beetbox/beets/pull/6838",
+					"state": "merged",
+					"date": "2026-07-14"
+				}
+			]
+		},
+		{
+			"repo": "Syndica/sig",
+			"repoUrl": "https://github.com/Syndica/sig",
+			"prsUrl": "https://github.com/Syndica/sig/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 1635,
+					"title": "fix(bloom): guard contains and add against a zero-capacity filter",
+					"url": "https://github.com/Syndica/sig/pull/1635",
+					"state": "merged",
+					"date": "2026-06-28"
+				}
+			]
+		},
+		{
+			"repo": "chandshy/mailpouch",
+			"repoUrl": "https://github.com/chandshy/mailpouch",
+			"prsUrl": "https://github.com/chandshy/mailpouch/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 213,
+					"title": "feat: expose account_id on every tool inputSchema",
+					"url": "https://github.com/chandshy/mailpouch/pull/213",
+					"state": "merged",
+					"date": "2026-06-10"
+				}
+			]
+		},
+		{
+			"repo": "alexpasmantier/television",
+			"repoUrl": "https://github.com/alexpasmantier/television",
+			"prsUrl": "https://github.com/alexpasmantier/television/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 1031,
+					"title": "feat(cable): add aerospace-windows channel",
+					"url": "https://github.com/alexpasmantier/television/pull/1031",
+					"state": "merged",
+					"date": "2026-04-10"
+				}
+			]
+		},
+		{
+			"repo": "zellij-org/zellij",
+			"repoUrl": "https://github.com/zellij-org/zellij",
+			"prsUrl": "https://github.com/zellij-org/zellij/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 2,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 5300,
+					"title": "fix: correct floating-pane chunk clipping on right overlap",
+					"url": "https://github.com/zellij-org/zellij/pull/5300",
+					"state": "open",
+					"date": "2026-06-23"
+				},
+				{
+					"number": 5299,
+					"title": "fix(scroll): keep scroll position when leaving scroll mode",
+					"url": "https://github.com/zellij-org/zellij/pull/5299",
+					"state": "open",
+					"date": "2026-06-23"
+				}
+			]
+		},
+		{
+			"repo": "mierak/rmpc",
+			"repoUrl": "https://github.com/mierak/rmpc",
+			"prsUrl": "https://github.com/mierak/rmpc/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 1046,
+					"title": "fix: preserve sort order when adding a directory to the queue",
+					"url": "https://github.com/mierak/rmpc/pull/1046",
+					"state": "open",
+					"date": "2026-07-15"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,310 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+import contributions from '../data/contributions.json';
+
+const description =
+	'Open source: side projects in C and Rust built from scratch, and merged pull requests to rust-lang, Solana/agave, and other upstreams.';
+
+// Curated link-out list; the GitHub READMEs are the source of truth.
+const projects = [
+	{
+		name: 'bytekv',
+		lang: 'C',
+		blurb: 'A small Redis in C: event loop, append-only log, compaction. Built to find out where the line between fast and durable actually gets drawn.',
+		href: 'https://github.com/valentynkit/bytekv',
+	},
+	{
+		name: 'building-tcp-servers-in-c',
+		lang: 'C',
+		blurb: 'One echo server written seven ways, from blocking up through select, poll, epoll, and kqueue. The point was to feel exactly what each I/O model buys you.',
+		href: 'https://github.com/valentynkit/building-tcp-servers-in-c',
+	},
+	{
+		name: 'building-tcp-servers-in-rust',
+		lang: 'Rust',
+		blurb: 'The same exercise in Rust, from blocking up through mio and tokio, with one test that runs across every backend. Async stops being magic once you\'ve hand-written the thing underneath it.',
+		href: 'https://github.com/valentynkit/building-tcp-servers-in-rust',
+	},
+	{
+		name: 'RowOrient_DB',
+		lang: 'C',
+		blurb: 'An in-memory, row-oriented database in C. Built to answer the one question I kept skipping: where do the bytes actually go.',
+		href: 'https://github.com/valentynkit/RowOrient_DB',
+	},
+	{
+		name: 'Solarix',
+		lang: 'Rust',
+		blurb: 'A Solana indexer in Rust. Building on the chain is not the same as understanding it. This is where that gap starts closing.',
+		href: 'https://github.com/valentynkit/Solarix',
+	},
+	{
+		name: 'x402_CLI',
+		lang: 'Rust',
+		blurb: 'A CLI for the x402 payments protocol on Solana. Small, but it moves a real dollar over a spec, which is the fastest way I know to actually learn one.',
+		href: 'https://github.com/valentynkit/x402_CLI',
+	},
+];
+
+const { totals, repos } = contributions;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Open source · ${SITE_TITLE}`} description={description} />
+	</head>
+	<body>
+		<Header />
+		<main id="main">
+			<h1>Open source</h1>
+			<p>
+				Two kinds, kept apart on purpose. The layer underneath, rebuilt from
+				scratch to understand it. And the patches I land in codebases I don't
+				own, where the job is to be right inside someone else's design.
+			</p>
+
+			<h2>Projects</h2>
+			<p>
+				Side projects, and I'll call them that. Each one is the smaller, wronger
+				version of something I depend on, built from scratch until I could see how
+				the real thing works. Source and full write-ups are on
+				<a href="https://github.com/valentynkit">GitHub</a>.
+			</p>
+			<ul class="manifest">
+				{
+					projects.map((p) => (
+						<li>
+							<div class="row">
+								<a class="name" href={p.href}>
+									{p.name}
+								</a>
+								<span class="lang">{p.lang}</span>
+							</div>
+							<p class="blurb">{p.blurb}</p>
+						</li>
+					))
+				}
+			</ul>
+
+			<h2>Contributions</h2>
+			<p>
+				Merged and in-flight pull requests to projects I don't maintain, folded
+				by repo, most-merged first.
+			</p>
+			{
+				repos.length === 0 ? (
+					<p class="contrib-empty">Contributions load on the next build.</p>
+				) : (
+					<>
+						<p class="contrib-total mono">
+							{totals.merged} merged · {totals.open} open across {totals.repos} repos
+						</p>
+						<div class="contribs">
+							{repos.map((r) => (
+								<details class="repo">
+									<summary>
+										<span class="repo-name">{r.repo}</span>
+										<span class="pills">
+											{r.merged > 0 && <span class="pill merged">{r.merged} merged</span>}
+											{r.open > 0 && <span class="pill open">{r.open} open</span>}
+											{r.closed > 0 && <span class="pill closed">{r.closed} closed</span>}
+										</span>
+									</summary>
+									<div class="panel">
+										<p class="repo-links mono">
+											<a href={r.repoUrl}>{r.repo} on GitHub ↗</a>
+											<a href={r.prsUrl}>my {r.merged + r.open + r.closed} PRs ↗</a>
+										</p>
+										<ul class="pr-list">
+											{r.prs.map((pr) => (
+												<li>
+													<span class={`dot ${pr.state}`} aria-hidden="true" />
+													<a class="pr" href={pr.url}>
+														<span class="pr-num">#{pr.number}</span> {pr.title}
+													</a>
+													<span class="pr-date">{pr.date}</span>
+												</li>
+											))}
+										</ul>
+									</div>
+								</details>
+							))}
+						</div>
+					</>
+				)
+			}
+		</main>
+		<Footer />
+	</body>
+</html>
+<style>
+	/* ---- Projects: curated manifest ---- */
+	.manifest {
+		list-style: none;
+		margin: 1.5rem 0 0;
+		padding: 0;
+		border-top: 1px solid var(--border);
+	}
+	.manifest li {
+		padding: 1.05rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	.row {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.name {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.05rem;
+		color: var(--fg-strong);
+		text-decoration: none;
+	}
+	.name:hover {
+		color: var(--accent);
+	}
+	.lang {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--accent);
+		white-space: nowrap;
+	}
+	.blurb {
+		color: var(--fg-secondary);
+		font-size: 0.95rem;
+		margin: 0.3rem 0 0;
+	}
+
+	/* ---- Contributions: fold by repo ---- */
+	.contrib-total {
+		font-size: 0.82rem;
+		color: var(--fg-muted);
+		margin: 0 0 1.25rem;
+	}
+	.contribs {
+		border-top: 1px solid var(--border);
+	}
+	.repo {
+		border-bottom: 1px solid var(--border);
+	}
+	.repo > summary {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5rem 1rem;
+		padding: 1rem 0;
+		cursor: pointer;
+	}
+	.repo > summary::-webkit-details-marker {
+		color: var(--fg-muted);
+	}
+	.repo-name {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1rem;
+		color: var(--fg-strong);
+	}
+	.pills {
+		display: inline-flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 0.9rem;
+		margin-left: auto;
+		font-family: var(--font-mono);
+		font-size: 0.76rem;
+	}
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		color: var(--fg-secondary);
+		white-space: nowrap;
+	}
+	.pill::before {
+		content: '';
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		background: currentColor;
+	}
+	.pill.merged {
+		color: var(--pr-merged);
+	}
+	.pill.open {
+		color: var(--pr-open);
+	}
+	.pill.closed {
+		color: var(--pr-closed);
+		opacity: 0.7;
+	}
+
+	.panel {
+		padding: 0 0 1.1rem;
+	}
+	.repo-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem 1.5rem;
+		font-size: 0.76rem;
+		margin: 0 0 0.9rem;
+	}
+	.pr-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.pr-list li {
+		display: grid;
+		grid-template-columns: 0.9rem 1fr auto;
+		align-items: baseline;
+		gap: 0.6rem;
+		padding: 0.35rem 0;
+	}
+	.dot {
+		width: 0.55rem;
+		height: 0.55rem;
+		border-radius: 50%;
+		align-self: center;
+	}
+	.dot.merged {
+		background: var(--pr-merged);
+	}
+	.dot.open {
+		background: var(--pr-open);
+	}
+	.dot.closed {
+		background: var(--pr-closed);
+		opacity: 0.7;
+	}
+	.pr {
+		color: var(--fg);
+		text-decoration: none;
+		font-size: 0.95rem;
+	}
+	.pr:hover {
+		color: var(--accent);
+	}
+	.pr-num {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--fg-muted);
+	}
+	.pr-date {
+		font-family: var(--font-mono);
+		font-size: 0.74rem;
+		color: var(--fg-muted);
+		white-space: nowrap;
+	}
+	@media (max-width: 600px) {
+		.pr-list li {
+			grid-template-columns: 0.9rem 1fr;
+		}
+		.pr-date {
+			display: none;
+		}
+	}
+</style>

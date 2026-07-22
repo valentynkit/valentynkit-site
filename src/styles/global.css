@@ -20,6 +20,11 @@
 	--accent: #f0883e; /* orange, bright variant for dark */
 	--accent-hover: #ffa657;
 
+	/* GitHub PR-state semantics (native to the GitHub-dark canvas) */
+	--pr-merged: #a371f7; /* purple */
+	--pr-open: #3fb950; /* green */
+	--pr-closed: #f85149; /* red, rendered dimmed on the pill */
+
 	--code-bg: #161b22;
 	--code-border: #21262d;
 
