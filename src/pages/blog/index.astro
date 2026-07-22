@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
+import Layout from '../../layouts/Layout.astro';
 import { SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
@@ -12,34 +10,24 @@ const posts = (await getCollection('blog')).sort(
 const description = 'Writing on systems from first principles: C, Rust, operating systems, networking, and databases.';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Writing · ${SITE_TITLE}`} description={description} />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
-			<h1>Writing</h1>
-			<p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
-			<ul class="entries">
-				{
-					posts.map((post) => (
-						<li>
-							<span class="when">
-								<FormattedDate date={post.data.pubDate} />
-							</span>
-							<div class="what">
-								<a class="headline" href={`/blog/${post.id}/`}>
-									{post.data.title}
-								</a>
-								<p class="summary">{post.data.description}</p>
-							</div>
-						</li>
-					))
-				}
-			</ul>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title={`Writing · ${SITE_TITLE}`} description={description}>
+	<h1>Writing</h1>
+	<p class="eyebrow">{posts.length} {posts.length === 1 ? 'post' : 'posts'}</p>
+	<ul class="entries">
+		{
+			posts.map((post) => (
+				<li>
+					<span class="when">
+						<FormattedDate date={post.data.pubDate} />
+					</span>
+					<div class="what">
+						<a class="headline" href={`/blog/${post.id}/`}>
+							{post.data.title}
+						</a>
+						<p class="summary">{post.data.description}</p>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+</Layout>

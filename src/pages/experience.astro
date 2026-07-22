@@ -1,7 +1,5 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 import { SITE_TITLE } from '../consts';
 
 const description = 'Resume of Valentyn Kit, distributed-systems and platform engineer: data-intensive backends, reliability, and a Rust-core FinTech platform.';
@@ -58,14 +56,7 @@ const roles = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={`Experience · ${SITE_TITLE}`} description={description} />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
+<Layout title={`Experience · ${SITE_TITLE}`} description={description}>
 			<h1>Valentyn Kit</h1>
 			<p class="tagline">Distributed-systems &amp; platform engineer</p>
 			<p>
@@ -109,10 +100,7 @@ const roles = [
 				<a href="https://www.linkedin.com/in/valentynkit">linkedin.com/in/valentynkit</a><br />
 				<a href="mailto:valentynkit.work@pm.me">valentynkit.work@pm.me</a>
 			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+</Layout>
 <style>
 	.tagline {
 		font-family: var(--font-mono);

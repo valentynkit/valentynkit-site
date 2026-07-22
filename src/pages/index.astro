@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
 import Subscribe from '../components/Subscribe.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
@@ -12,54 +10,44 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main id="main">
-			<section class="intro rise">
-				<p class="eyebrow">systems engineer · rust · c · solana</p>
-				<h1>Valentyn Kit</h1>
-				<p class="lede">
-					Six years building distributed systems and platforms. Right now: the
-					Rust core of a money-movement platform — durable state machines,
-					multi-chain signing, exactly-once semantics. Nights and weekends I go
-					one level deeper, rebuilding the foundations from scratch: databases,
-					TCP servers, a key-value store in C. To understand, not just use. This
-					blog is the log: what holds in production, and what you find rebuilding
-					the foundations yourself.
-				</p>
-				<p class="meta">
-					<a href="https://github.com/valentynkit">github</a> · <a href="https://x.com/valentynkit">x</a> · <a href="/experience">experience</a>
-				</p>
-			</section>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<section class="intro rise">
+		<p class="eyebrow">systems engineer · rust · c · solana</p>
+		<h1>Valentyn Kit</h1>
+		<p class="lede">
+			Six years building distributed systems and platforms. Right now: the
+			Rust core of a money-movement platform — durable state machines,
+			multi-chain signing, exactly-once semantics. Nights and weekends I go
+			one level deeper, rebuilding the foundations from scratch: databases,
+			TCP servers, a key-value store in C. To understand, not just use. This
+			blog is the log: what holds in production, and what you find rebuilding
+			the foundations yourself.
+		</p>
+		<p class="meta">
+			<a href="https://github.com/valentynkit">github</a> · <a href="https://x.com/valentynkit">x</a> · <a href="/experience">experience</a>
+		</p>
+	</section>
 
-			<p class="eyebrow writing-label">writing</p>
-			<ul class="entries">
-				{
-					posts.map((post, i) => (
-						<li class="rise" style={`animation-delay:${Math.min(120 + i * 60, 480)}ms`}>
-							<span class="when">
-								<FormattedDate date={post.data.pubDate} />
-							</span>
-							<div class="what">
-								<a class="headline" href={`/blog/${post.id}/`}>
-									{post.data.title}
-								</a>
-								<p class="summary">{post.data.description}</p>
-							</div>
-						</li>
-					))
-				}
-			</ul>
-			<Subscribe />
-		</main>
-		<Footer />
-	</body>
-</html>
+	<p class="eyebrow writing-label">writing</p>
+	<ul class="entries">
+		{
+			posts.map((post, i) => (
+				<li class="rise" style={`animation-delay:${Math.min(120 + i * 60, 480)}ms`}>
+					<span class="when">
+						<FormattedDate date={post.data.pubDate} />
+					</span>
+					<div class="what">
+						<a class="headline" href={`/blog/${post.id}/`}>
+							{post.data.title}
+						</a>
+						<p class="summary">{post.data.description}</p>
+					</div>
+				</li>
+			))
+		}
+	</ul>
+	<Subscribe />
+</Layout>
 <style>
 	.intro h1 {
 		margin-top: 0.3rem;
