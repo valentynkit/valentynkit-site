@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE } from '../consts';
+import { library, TOPICS, TIER_LABEL, type Tier } from '../data/library';
+
+const description =
+	'Books, papers, and talks that shaped how I think about systems, Rust, and distributed infrastructure — grouped by topic, with a candid take on each.';
+
+// Fail the build on a typo'd topic (it would otherwise silently drop the entry).
+const known = new Set<string>(TOPICS);
+for (const e of library) {
+	if (!known.has(e.topic)) throw new Error(`library: unknown topic "${e.topic}" on "${e.title}"`);
+}
+
+const TIER_ORDER: Record<Tier, number> = { essential: 0, 'worth-it': 1, situational: 2 };
+const rank = (t?: Tier) => (t ? TIER_ORDER[t] : 99); // untiered entries sort last
+
+// Group by topic in TOPICS order; within a topic, best first. Hide empty topics.
+const groups = TOPICS.map((topic) => ({
+	topic,
+	entries: library
+		.filter((e) => e.topic === topic)
+		.sort((a, b) => rank(a.tier) - rank(b.tier) || a.title.localeCompare(b.title)),
+})).filter((g) => g.entries.length > 0);
+---
+
+<Layout title={`Library · ${SITE_TITLE}`} description={description}>
+	<h1>Library</h1>
+	<p>
+		The books, papers, and talks that actually moved how I think — on systems,
+		Rust, and the layer underneath. Rated by how hard I'd push them on you, with
+		an honest line on each. Not a shelf I'm signaling with; the ones that changed
+		how I work.
+	</p>
+	{
+		groups.map((g) => (
+			<section class="topic">
+				<h2>{g.topic}</h2>
+				<ul class="lib">
+					{g.entries.map((e) => (
+						<li>
+							<div class="head">
+								<a class="title" href={e.url}>
+									{e.title}
+								</a>
+								{e.tier && <span class={`tier ${e.tier}`}>{TIER_LABEL[e.tier]}</span>}
+							</div>
+							<p class="sub">
+								{e.by && <span class="by">{e.by}</span>}
+								<span class="tag">{e.medium}</span>
+							</p>
+							{e.note && <p class="note">{e.note}</p>}
+						</li>
+					))}
+				</ul>
+			</section>
+		))
+	}
+</Layout>
+<style>
+	.topic h2 {
+		margin-bottom: 0.4rem;
+	}
+	.lib {
+		list-style: none;
+		margin: 1.1rem 0 0;
+		padding: 0;
+		border-top: 1px solid var(--border);
+	}
+	.lib li {
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+	.head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+	.title {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.02rem;
+		color: var(--fg-strong);
+		text-decoration: none;
+	}
+	.title:hover {
+		color: var(--accent);
+	}
+	.tier {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		white-space: nowrap;
+	}
+	.tier::before {
+		content: '';
+		width: 0.5rem;
+		height: 0.5rem;
+		border-radius: 50%;
+		background: currentColor;
+	}
+	.tier.essential {
+		color: var(--accent);
+	}
+	.tier.worth-it {
+		color: var(--fg-secondary);
+	}
+	.tier.situational {
+		color: var(--fg-muted);
+	}
+	.sub {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.4rem 0.9rem;
+		margin: 0.25rem 0 0;
+	}
+	.by {
+		font-size: 0.85rem;
+		color: var(--fg-secondary);
+	}
+	.note {
+		color: var(--fg-secondary);
+		font-size: 0.95rem;
+		margin: 0.4rem 0 0;
+	}
+</style>
