@@ -42,6 +42,22 @@ export const library: Entry[] = [
 		tier: 'essential',
 	},
 	{
+		title: 'Virtual Memory: Page Tables, TLBs, and Linux Internals',
+		by: 'Abhinav Upadhyay',
+		medium: 'article',
+		url: 'https://blog.codingconfessions.com/p/virtual-memory',
+		topic: 'Systems & OS',
+		tier: 'essential',
+	},
+	{
+		title: 'The C10K problem',
+		by: 'Dan Kegel',
+		medium: 'article',
+		url: 'https://www.cs.kent.edu/~ruttan/sysprog/lectures/select/c10k.html',
+		topic: 'Systems & OS',
+		tier: 'situational',
+	},
+	{
 		title: 'Designing Data-Intensive Applications',
 		by: 'Martin Kleppmann',
 		medium: 'book',
@@ -74,6 +90,15 @@ export const library: Entry[] = [
 		topic: 'Distributed systems',
 		tier: 'worth-it',
 		note: 'Also good — and works great in combo with MapReduce.',
+	},
+	{
+		title: 'MIT 6.824: Distributed Systems (Spring 2020)',
+		by: 'MIT 6.824',
+		medium: 'video',
+		url: 'https://www.youtube.com/playlist?list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB',
+		topic: 'Distributed systems',
+		tier: 'situational',
+		note: 'Time-consuming, but worth it at 1.5x+ for deeper dives on distributed systems.',
 	},
 	{
 		title: 'Database Internals',
