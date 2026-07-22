@@ -1,6 +1,10 @@
 {
   "framework": "astro",
   "buildCommand": "npm run build",
+  "redirects": [
+    { "source": "/projects", "destination": "/open-source", "permanent": true },
+    { "source": "/resume", "destination": "/experience", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

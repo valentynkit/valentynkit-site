@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "lint:content": "node scripts/lint-content.mjs",
-    "build": "npm run lint:content && astro build && node scripts/indexnow.mjs",
+    "sync:contributions": "node scripts/sync-contributions.mjs",
+    "build": "npm run lint:content && node scripts/sync-contributions.mjs && astro build && node scripts/indexnow.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
