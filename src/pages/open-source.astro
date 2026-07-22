@@ -96,7 +96,7 @@ const { totals, repos } = contributions;
 		) : (
 			<>
 				<p class="contrib-total mono">
-					{totals.merged} merged · {totals.open} open across {totals.repos} repos
+					{totals.merged} merged pull request{totals.merged === 1 ? '' : 's'}
 				</p>
 				<div class="folds">
 					{repos.map((r) => (
