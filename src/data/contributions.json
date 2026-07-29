@@ -1,18 +1,39 @@
 {
 	"totals": {
-		"merged": 15,
-		"open": 8,
-		"repos": 8
+		"merged": 18,
+		"open": 11,
+		"repos": 9
 	},
 	"repos": [
 		{
 			"repo": "rust-lang/rust",
 			"repoUrl": "https://github.com/rust-lang/rust",
 			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 9,
-			"open": 4,
+			"merged": 10,
+			"open": 6,
 			"closed": 1,
 			"prs": [
+				{
+					"number": 159954,
+					"title": "core: implement float conversion methods",
+					"url": "https://github.com/rust-lang/rust/pull/159954",
+					"state": "open",
+					"date": "2026-07-26"
+				},
+				{
+					"number": 159855,
+					"title": "std: retry waitid on EINTR in the pidfd wait path",
+					"url": "https://github.com/rust-lang/rust/pull/159855",
+					"state": "open",
+					"date": "2026-07-24"
+				},
+				{
+					"number": 159846,
+					"title": "Implement `str::copy_from_str`",
+					"url": "https://github.com/rust-lang/rust/pull/159846",
+					"state": "merged",
+					"date": "2026-07-24"
+				},
 				{
 					"number": 159511,
 					"title": "std: count all processor groups in available_parallelism on Windows",
@@ -138,6 +159,71 @@
 			]
 		},
 		{
+			"repo": "Syndica/sig",
+			"repoUrl": "https://github.com/Syndica/sig",
+			"prsUrl": "https://github.com/Syndica/sig/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 2,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 1764,
+					"title": "fix(bn254): drop subgroup check from V0 G2 addition",
+					"url": "https://github.com/Syndica/sig/pull/1764",
+					"state": "open",
+					"date": "2026-07-25"
+				},
+				{
+					"number": 1760,
+					"title": "fix(runtime): collect rent state for native-loader-owned writable accounts",
+					"url": "https://github.com/Syndica/sig/pull/1760",
+					"state": "open",
+					"date": "2026-07-24"
+				},
+				{
+					"number": 1635,
+					"title": "fix(bloom): guard contains and add against a zero-capacity filter",
+					"url": "https://github.com/Syndica/sig/pull/1635",
+					"state": "merged",
+					"date": "2026-06-28"
+				}
+			]
+		},
+		{
+			"repo": "rmpc-org/rmpcd-plugins",
+			"repoUrl": "https://github.com/rmpc-org/rmpcd-plugins",
+			"prsUrl": "https://github.com/rmpc-org/rmpcd-plugins/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 3,
+					"title": "Add ListenBrainz scrobbler plugin",
+					"url": "https://github.com/rmpc-org/rmpcd-plugins/pull/3",
+					"state": "merged",
+					"date": "2026-07-24"
+				}
+			]
+		},
+		{
+			"repo": "mierak/rmpc",
+			"repoUrl": "https://github.com/mierak/rmpc",
+			"prsUrl": "https://github.com/mierak/rmpc/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 1046,
+					"title": "fix: preserve sort order when adding a directory to the queue",
+					"url": "https://github.com/mierak/rmpc/pull/1046",
+					"state": "merged",
+					"date": "2026-07-15"
+				}
+			]
+		},
+		{
 			"repo": "beetbox/beets",
 			"repoUrl": "https://github.com/beetbox/beets",
 			"prsUrl": "https://github.com/beetbox/beets/pulls?q=is%3Apr+author%3Avalentynkit",
@@ -151,23 +237,6 @@
 					"url": "https://github.com/beetbox/beets/pull/6838",
 					"state": "merged",
 					"date": "2026-07-14"
-				}
-			]
-		},
-		{
-			"repo": "Syndica/sig",
-			"repoUrl": "https://github.com/Syndica/sig",
-			"prsUrl": "https://github.com/Syndica/sig/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 1,
-			"open": 0,
-			"closed": 0,
-			"prs": [
-				{
-					"number": 1635,
-					"title": "fix(bloom): guard contains and add against a zero-capacity filter",
-					"url": "https://github.com/Syndica/sig/pull/1635",
-					"state": "merged",
-					"date": "2026-06-28"
 				}
 			]
 		},
@@ -226,23 +295,6 @@
 					"url": "https://github.com/zellij-org/zellij/pull/5299",
 					"state": "open",
 					"date": "2026-06-23"
-				}
-			]
-		},
-		{
-			"repo": "mierak/rmpc",
-			"repoUrl": "https://github.com/mierak/rmpc",
-			"prsUrl": "https://github.com/mierak/rmpc/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 0,
-			"open": 1,
-			"closed": 0,
-			"prs": [
-				{
-					"number": 1046,
-					"title": "fix: preserve sort order when adding a directory to the queue",
-					"url": "https://github.com/mierak/rmpc/pull/1046",
-					"state": "open",
-					"date": "2026-07-15"
 				}
 			]
 		}
