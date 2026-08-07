@@ -1,18 +1,32 @@
 {
 	"totals": {
-		"merged": 18,
-		"open": 11,
-		"repos": 9
+		"merged": 20,
+		"open": 13,
+		"repos": 11
 	},
 	"repos": [
 		{
 			"repo": "rust-lang/rust",
 			"repoUrl": "https://github.com/rust-lang/rust",
 			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 10,
-			"open": 6,
+			"merged": 11,
+			"open": 7,
 			"closed": 1,
 			"prs": [
+				{
+					"number": 160219,
+					"title": "Implement `Thread::os_id`",
+					"url": "https://github.com/rust-lang/rust/pull/160219",
+					"state": "open",
+					"date": "2026-07-30"
+				},
+				{
+					"number": 160218,
+					"title": "Add documentation for the `target_feature` attribute",
+					"url": "https://github.com/rust-lang/rust/pull/160218",
+					"state": "open",
+					"date": "2026-07-30"
+				},
 				{
 					"number": 159954,
 					"title": "core: implement float conversion methods",
@@ -80,7 +94,7 @@
 					"number": 158726,
 					"title": "std: move futex implementations into sys::sync::futex",
 					"url": "https://github.com/rust-lang/rust/pull/158726",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-07-03"
 				},
 				{
@@ -190,6 +204,23 @@
 			]
 		},
 		{
+			"repo": "rust-lang/libc",
+			"repoUrl": "https://github.com/rust-lang/libc",
+			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 5359,
+					"title": "Add `pthread_gettid_np` for Android and glibc",
+					"url": "https://github.com/rust-lang/libc/pull/5359",
+					"state": "merged",
+					"date": "2026-08-03"
+				}
+			]
+		},
+		{
 			"repo": "rmpc-org/rmpcd-plugins",
 			"repoUrl": "https://github.com/rmpc-org/rmpcd-plugins",
 			"prsUrl": "https://github.com/rmpc-org/rmpcd-plugins/pulls?q=is%3Apr+author%3Avalentynkit",
@@ -295,6 +326,23 @@
 					"url": "https://github.com/zellij-org/zellij/pull/5299",
 					"state": "open",
 					"date": "2026-06-23"
+				}
+			]
+		},
+		{
+			"repo": "MusicPlayerDaemon/MPD",
+			"repoUrl": "https://github.com/MusicPlayerDaemon/MPD",
+			"prsUrl": "https://github.com/MusicPlayerDaemon/MPD/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 2556,
+					"title": "output/osx: move the default device query into a function",
+					"url": "https://github.com/MusicPlayerDaemon/MPD/pull/2556",
+					"state": "open",
+					"date": "2026-07-30"
 				}
 			]
 		}
