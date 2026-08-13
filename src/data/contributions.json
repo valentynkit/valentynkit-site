@@ -1,8 +1,8 @@
 {
 	"totals": {
-		"merged": 20,
+		"merged": 22,
 		"open": 13,
-		"repos": 11
+		"repos": 12
 	},
 	"repos": [
 		{
@@ -10,9 +10,16 @@
 			"repoUrl": "https://github.com/rust-lang/rust",
 			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
 			"merged": 11,
-			"open": 7,
+			"open": 8,
 			"closed": 1,
 			"prs": [
+				{
+					"number": 160972,
+					"title": "std: map ERROR_NEGATIVE_SEEK to ErrorKind::InvalidInput on Windows",
+					"url": "https://github.com/rust-lang/rust/pull/160972",
+					"state": "open",
+					"date": "2026-08-12"
+				},
 				{
 					"number": 160219,
 					"title": "Implement `Thread::os_id`",
@@ -204,6 +211,47 @@
 			]
 		},
 		{
+			"repo": "zellij-org/zellij",
+			"repoUrl": "https://github.com/zellij-org/zellij",
+			"prsUrl": "https://github.com/zellij-org/zellij/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 5300,
+					"title": "fix: correct floating-pane chunk clipping on right overlap",
+					"url": "https://github.com/zellij-org/zellij/pull/5300",
+					"state": "open",
+					"date": "2026-06-23"
+				},
+				{
+					"number": 5299,
+					"title": "fix(scroll): keep scroll position when leaving scroll mode",
+					"url": "https://github.com/zellij-org/zellij/pull/5299",
+					"state": "merged",
+					"date": "2026-06-23"
+				}
+			]
+		},
+		{
+			"repo": "anza-xyz/solana-sdk",
+			"repoUrl": "https://github.com/anza-xyz/solana-sdk",
+			"prsUrl": "https://github.com/anza-xyz/solana-sdk/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 1,
+			"prs": [
+				{
+					"number": 874,
+					"title": "vote-interface: add System program to deposit_delegator_rewards",
+					"url": "https://github.com/anza-xyz/solana-sdk/pull/874",
+					"state": "merged",
+					"date": "2026-08-11"
+				}
+			]
+		},
+		{
 			"repo": "rust-lang/libc",
 			"repoUrl": "https://github.com/rust-lang/libc",
 			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
@@ -302,30 +350,6 @@
 					"url": "https://github.com/alexpasmantier/television/pull/1031",
 					"state": "merged",
 					"date": "2026-04-10"
-				}
-			]
-		},
-		{
-			"repo": "zellij-org/zellij",
-			"repoUrl": "https://github.com/zellij-org/zellij",
-			"prsUrl": "https://github.com/zellij-org/zellij/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 0,
-			"open": 2,
-			"closed": 0,
-			"prs": [
-				{
-					"number": 5300,
-					"title": "fix: correct floating-pane chunk clipping on right overlap",
-					"url": "https://github.com/zellij-org/zellij/pull/5300",
-					"state": "open",
-					"date": "2026-06-23"
-				},
-				{
-					"number": 5299,
-					"title": "fix(scroll): keep scroll position when leaving scroll mode",
-					"url": "https://github.com/zellij-org/zellij/pull/5299",
-					"state": "open",
-					"date": "2026-06-23"
 				}
 			]
 		},
