@@ -1,7 +1,7 @@
 {
 	"totals": {
-		"merged": 22,
-		"open": 13,
+		"merged": 25,
+		"open": 11,
 		"repos": 12
 	},
 	"repos": [
@@ -9,15 +9,15 @@
 			"repo": "rust-lang/rust",
 			"repoUrl": "https://github.com/rust-lang/rust",
 			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 11,
-			"open": 8,
+			"merged": 13,
+			"open": 6,
 			"closed": 1,
 			"prs": [
 				{
 					"number": 160972,
 					"title": "std: map ERROR_NEGATIVE_SEEK to ErrorKind::InvalidInput on Windows",
 					"url": "https://github.com/rust-lang/rust/pull/160972",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-08-12"
 				},
 				{
@@ -45,7 +45,7 @@
 					"number": 159855,
 					"title": "std: retry waitid on EINTR in the pidfd wait path",
 					"url": "https://github.com/rust-lang/rust/pull/159855",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-07-24"
 				},
 				{
@@ -180,6 +180,30 @@
 			]
 		},
 		{
+			"repo": "rust-lang/libc",
+			"repoUrl": "https://github.com/rust-lang/libc",
+			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 2,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 5412,
+					"title": "linux_like: add missing `STATX_*` constants",
+					"url": "https://github.com/rust-lang/libc/pull/5412",
+					"state": "merged",
+					"date": "2026-08-16"
+				},
+				{
+					"number": 5359,
+					"title": "Add `pthread_gettid_np` for Android and glibc",
+					"url": "https://github.com/rust-lang/libc/pull/5359",
+					"state": "merged",
+					"date": "2026-08-03"
+				}
+			]
+		},
+		{
 			"repo": "Syndica/sig",
 			"repoUrl": "https://github.com/Syndica/sig",
 			"prsUrl": "https://github.com/Syndica/sig/pulls?q=is%3Apr+author%3Avalentynkit",
@@ -248,23 +272,6 @@
 					"url": "https://github.com/anza-xyz/solana-sdk/pull/874",
 					"state": "merged",
 					"date": "2026-08-11"
-				}
-			]
-		},
-		{
-			"repo": "rust-lang/libc",
-			"repoUrl": "https://github.com/rust-lang/libc",
-			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 1,
-			"open": 0,
-			"closed": 0,
-			"prs": [
-				{
-					"number": 5359,
-					"title": "Add `pthread_gettid_np` for Android and glibc",
-					"url": "https://github.com/rust-lang/libc/pull/5359",
-					"state": "merged",
-					"date": "2026-08-03"
 				}
 			]
 		},
