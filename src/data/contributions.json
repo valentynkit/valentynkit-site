@@ -1,18 +1,32 @@
 {
 	"totals": {
-		"merged": 25,
-		"open": 11,
-		"repos": 12
+		"merged": 30,
+		"open": 15,
+		"repos": 18
 	},
 	"repos": [
 		{
 			"repo": "rust-lang/rust",
 			"repoUrl": "https://github.com/rust-lang/rust",
 			"prsUrl": "https://github.com/rust-lang/rust/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 13,
-			"open": 6,
+			"merged": 16,
+			"open": 5,
 			"closed": 1,
 			"prs": [
+				{
+					"number": 162062,
+					"title": "core: fix the docs of PanicInfo::location",
+					"url": "https://github.com/rust-lang/rust/pull/162062",
+					"state": "open",
+					"date": "2026-08-31"
+				},
+				{
+					"number": 162027,
+					"title": "std: add `fs::rename_noreplace`",
+					"url": "https://github.com/rust-lang/rust/pull/162027",
+					"state": "open",
+					"date": "2026-08-30"
+				},
 				{
 					"number": 160972,
 					"title": "std: map ERROR_NEGATIVE_SEEK to ErrorKind::InvalidInput on Windows",
@@ -38,7 +52,7 @@
 					"number": 159954,
 					"title": "core: implement float conversion methods",
 					"url": "https://github.com/rust-lang/rust/pull/159954",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-07-26"
 				},
 				{
@@ -73,7 +87,7 @@
 					"number": 159098,
 					"title": "Add Arc/Rc::strong_count_from_raw",
 					"url": "https://github.com/rust-lang/rust/pull/159098",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-07-10"
 				},
 				{
@@ -108,7 +122,7 @@
 					"number": 158580,
 					"title": "std: map ENOTSUP to ErrorKind::Unsupported",
 					"url": "https://github.com/rust-lang/rust/pull/158580",
-					"state": "open",
+					"state": "merged",
 					"date": "2026-06-29"
 				},
 				{
@@ -149,6 +163,37 @@
 			]
 		},
 		{
+			"repo": "rust-lang/libc",
+			"repoUrl": "https://github.com/rust-lang/libc",
+			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 3,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 5434,
+					"title": "glibc: Add `f_type` to `statvfs` and `statvfs64`",
+					"url": "https://github.com/rust-lang/libc/pull/5434",
+					"state": "merged",
+					"date": "2026-08-21"
+				},
+				{
+					"number": 5412,
+					"title": "linux_like: add missing `STATX_*` constants",
+					"url": "https://github.com/rust-lang/libc/pull/5412",
+					"state": "merged",
+					"date": "2026-08-16"
+				},
+				{
+					"number": 5359,
+					"title": "Add `pthread_gettid_np` for Android and glibc",
+					"url": "https://github.com/rust-lang/libc/pull/5359",
+					"state": "merged",
+					"date": "2026-08-03"
+				}
+			]
+		},
+		{
 			"repo": "anza-xyz/agave",
 			"repoUrl": "https://github.com/anza-xyz/agave",
 			"prsUrl": "https://github.com/anza-xyz/agave/pulls?q=is%3Apr+author%3Avalentynkit",
@@ -176,30 +221,6 @@
 					"url": "https://github.com/anza-xyz/agave/pull/13655",
 					"state": "merged",
 					"date": "2026-07-03"
-				}
-			]
-		},
-		{
-			"repo": "rust-lang/libc",
-			"repoUrl": "https://github.com/rust-lang/libc",
-			"prsUrl": "https://github.com/rust-lang/libc/pulls?q=is%3Apr+author%3Avalentynkit",
-			"merged": 2,
-			"open": 0,
-			"closed": 0,
-			"prs": [
-				{
-					"number": 5412,
-					"title": "linux_like: add missing `STATX_*` constants",
-					"url": "https://github.com/rust-lang/libc/pull/5412",
-					"state": "merged",
-					"date": "2026-08-16"
-				},
-				{
-					"number": 5359,
-					"title": "Add `pthread_gettid_np` for Android and glibc",
-					"url": "https://github.com/rust-lang/libc/pull/5359",
-					"state": "merged",
-					"date": "2026-08-03"
 				}
 			]
 		},
@@ -255,6 +276,23 @@
 					"url": "https://github.com/zellij-org/zellij/pull/5299",
 					"state": "merged",
 					"date": "2026-06-23"
+				}
+			]
+		},
+		{
+			"repo": "anza-xyz/sbpf",
+			"repoUrl": "https://github.com/anza-xyz/sbpf",
+			"prsUrl": "https://github.com/anza-xyz/sbpf/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 1,
+			"open": 0,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 212,
+					"title": "elf: keep debug labels from failing the load",
+					"url": "https://github.com/anza-xyz/sbpf/pull/212",
+					"state": "merged",
+					"date": "2026-08-17"
 				}
 			]
 		},
@@ -357,6 +395,91 @@
 					"url": "https://github.com/alexpasmantier/television/pull/1031",
 					"state": "merged",
 					"date": "2026-04-10"
+				}
+			]
+		},
+		{
+			"repo": "firedancer-io/firedancer",
+			"repoUrl": "https://github.com/firedancer-io/firedancer",
+			"prsUrl": "https://github.com/firedancer-io/firedancer/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 11149,
+					"title": "sbpf, vm: read program text with FD_LOAD",
+					"url": "https://github.com/firedancer-io/firedancer/pull/11149",
+					"state": "open",
+					"date": "2026-08-31"
+				}
+			]
+		},
+		{
+			"repo": "otter-sec/anchor",
+			"repoUrl": "https://github.com/otter-sec/anchor",
+			"prsUrl": "https://github.com/otter-sec/anchor/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 4972,
+					"title": "fix(lang): Detect bytemuck derives by path in #[zero_copy]",
+					"url": "https://github.com/otter-sec/anchor/pull/4972",
+					"state": "open",
+					"date": "2026-08-31"
+				}
+			]
+		},
+		{
+			"repo": "transact-rs/sqlx",
+			"repoUrl": "https://github.com/transact-rs/sqlx",
+			"prsUrl": "https://github.com/transact-rs/sqlx/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 4398,
+					"title": "docs: clarify `Pool::size` and `Pool::num_idle`",
+					"url": "https://github.com/transact-rs/sqlx/pull/4398",
+					"state": "open",
+					"date": "2026-08-28"
+				}
+			]
+		},
+		{
+			"repo": "anza-xyz/pinocchio",
+			"repoUrl": "https://github.com/anza-xyz/pinocchio",
+			"prsUrl": "https://github.com/anza-xyz/pinocchio/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 441,
+					"title": "programs: Return `InvalidAccountOwner` from `Account` owner checks",
+					"url": "https://github.com/anza-xyz/pinocchio/pull/441",
+					"state": "open",
+					"date": "2026-08-25"
+				}
+			]
+		},
+		{
+			"repo": "rust-lang/stdarch",
+			"repoUrl": "https://github.com/rust-lang/stdarch",
+			"prsUrl": "https://github.com/rust-lang/stdarch/pulls?q=is%3Apr+author%3Avalentynkit",
+			"merged": 0,
+			"open": 1,
+			"closed": 0,
+			"prs": [
+				{
+					"number": 2214,
+					"title": "neon: drop the align requirement on vld1/vst1/vld1 lane loads and stores, dup loads",
+					"url": "https://github.com/rust-lang/stdarch/pull/2214",
+					"state": "open",
+					"date": "2026-08-20"
 				}
 			]
 		},
